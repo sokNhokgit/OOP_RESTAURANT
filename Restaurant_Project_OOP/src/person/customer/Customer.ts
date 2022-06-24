@@ -4,12 +4,12 @@ import { Person } from "../Person";
 
 
 export class OutsideCustomer extends Person{
-    constructor(name: string, age: number, gender: Gender, private address: Location){
+    constructor(name: string, age: number, gender: Gender, private location: Location){
         super(name, age, gender);
     }
 
-    getCustomerAddress(){
-        return this.address;
+    getCustomerLocation(){
+        return this.location;
     }
 }
 

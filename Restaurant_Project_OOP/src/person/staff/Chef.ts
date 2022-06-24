@@ -9,7 +9,7 @@ export enum FoodArea{
     AMERIC
 }
 
-export class Chief extends Staff{
+export class Chef extends Staff{
     private foodArea?:FoodArea;
 
     constructor(name: string, age: number, gender: Gender, staffCategory: StaffCategory){
