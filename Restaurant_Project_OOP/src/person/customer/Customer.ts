@@ -1,10 +1,11 @@
+import { Contact } from "../Contact";
 import { Gender } from "../Gender";
-import { Location } from "../Location";
+import { Location } from "../../Location";
 import { Person } from "../Person";
 
 
 export class OutsideCustomer extends Person{
-    constructor(name: string, age: number, gender: Gender, private location: Location){
+    constructor(name: string, age: number, gender: Gender, private location: Location, private contact: string){
         super(name, age, gender);
     }
 

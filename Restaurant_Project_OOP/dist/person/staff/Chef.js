@@ -15,25 +15,23 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 exports.__esModule = true;
-exports.InsideCustomer = exports.OutsideCustomer = void 0;
-var Person_1 = require("../Person");
-var OutsideCustomer = /** @class */ (function (_super) {
-    __extends(OutsideCustomer, _super);
-    function OutsideCustomer(name, age, gender, location) {
-        var _this = _super.call(this, name, age, gender) || this;
-        _this.location = location;
-        return _this;
+exports.Chef = exports.FoodArea = void 0;
+var Staff_1 = require("./Staff");
+var FoodArea;
+(function (FoodArea) {
+    FoodArea[FoodArea["ASEA"] = 0] = "ASEA";
+    FoodArea[FoodArea["EUROPE"] = 1] = "EUROPE";
+    FoodArea[FoodArea["AFRIC"] = 2] = "AFRIC";
+    FoodArea[FoodArea["AMERIC"] = 3] = "AMERIC";
+})(FoodArea = exports.FoodArea || (exports.FoodArea = {}));
+var Chef = /** @class */ (function (_super) {
+    __extends(Chef, _super);
+    function Chef(name, age, gender, staffCategory) {
+        return _super.call(this, staffCategory, name, age, gender) || this;
     }
-    OutsideCustomer.prototype.getCustomerLocation = function () {
-        return this.location;
+    Chef.prototype.setFoodArea = function (foodArea) {
+        this.foodArea = foodArea;
     };
-    return OutsideCustomer;
-}(Person_1.Person));
-exports.OutsideCustomer = OutsideCustomer;
-var InsideCustomer = /** @class */ (function () {
-    function InsideCustomer(cusomerID) {
-        this.cusomerID = cusomerID;
-    }
-    return InsideCustomer;
-}());
-exports.InsideCustomer = InsideCustomer;
+    return Chef;
+}(Staff_1.Staff));
+exports.Chef = Chef;
