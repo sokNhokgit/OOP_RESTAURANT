@@ -10,6 +10,7 @@ export class PersonManagement{
     addStaff(staff: Staff){
         this.staffs.push(staff);
     }
+    
     getAllStaff(){
         return this.staffs;
     }
@@ -23,5 +24,13 @@ export class PersonManagement{
             }
         });
         return customers;
+    }
+
+    addInsideCustomer(customer: InsideCustomer){
+        this.insideCustomers.push(customer);
+    }
+
+    addOutsideCustomer(customer: OutsideCustomer){
+        this.outsideCustomer.push(customer);
     }
 }

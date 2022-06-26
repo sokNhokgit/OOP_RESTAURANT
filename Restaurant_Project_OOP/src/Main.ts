@@ -5,21 +5,6 @@ import { Cleaner } from "./person/staff/Cleaner";
 import { Security } from "./person/staff/Security";
 import { StaffCategory } from "./person/staff/StaffCategories";
 import { Waiter } from "./person/staff/Waiter";
-
-let apple = new Chef('Apple', 29, Gender.MALE, StaffCategory.CHIEF);
-let banana = new Waiter('Banana', 35, Gender.FEMALE, StaffCategory.WAITER);
-let coconut = new Security('Coconut', 32, Gender.MALE, StaffCategory.SECURITY);
-let DragonFruit = new Cleaner('DragonFruit', 40, Gender.FEMALE, StaffCategory.CLEANER);
-
-let personManagement = new PersonManagement();
-personManagement.addStaff(apple);
-personManagement.addStaff(banana);
-personManagement.addStaff(coconut);
-personManagement.addStaff(DragonFruit);
-
-// console.log(personManagement.getAllStaff());
-console.log(personManagement.getOnlyStaffCategory(StaffCategory.CHIEF));
-
 import { Food } from "./kitchen/Food";
 import { FoodManagement } from "./kitchen/FoodManagement";
 import { FoodCategory } from "./kitchen/FoodCategory";
@@ -27,6 +12,45 @@ import { FoodMenu } from "./kitchen/FoodMenu";
 import { OrderManagement } from "./Order.ts/OrderManagement";
 import { Orderlist } from "./Order.ts/Orderlist";
 import { Order } from "./Order.ts/Order";
+import { OutsideCustomer } from "./person/customer/Customer";
+import { Location } from "./Location";
+import { Restraurant } from "./Restraurant";
+
+/**
+ * create location
+ */
+let location1 = new Location(1004, 'Norodom', 'Phnom Peng');
+let location2 = new Location(2004, 'Sisovat', 'Phnom Peng');
+let location3 = new Location(3004, 'Mean Chey', 'Phnom Peng');
+/**
+ * create restraurant
+ */
+let restraurant = new Restraurant('restraurant', location1);
+
+/**
+ * create staff
+ */
+let apple = new Chef('Apple', 29, Gender.MALE, StaffCategory.CHIEF);
+let banana = new Waiter('Banana', 35, Gender.FEMALE, StaffCategory.WAITER);
+let coconut = new Security('Coconut', 32, Gender.MALE, StaffCategory.SECURITY);
+let DragonFruit = new Cleaner('DragonFruit', 40, Gender.FEMALE, StaffCategory.CLEANER);
+
+/**
+ * add staff to staff list
+ */
+let personManagement = new PersonManagement();
+personManagement.addStaff(apple);
+personManagement.addStaff(banana);
+personManagement.addStaff(coconut);
+personManagement.addStaff(DragonFruit);
+
+
+/**
+ * create outside customer
+ */
+let romdual = new OutsideCustomer('Romdual', 25, Gender.FEMALE, location1, '0929394959');
+let shika = new OutsideCustomer('Shika', 30, Gender.FEMALE, location2, '0839248678');
+let nora = new OutsideCustomer('Nora', 40, Gender.MALE, location3, '0998943234');
 
 // management 
 let foodManagement = new FoodManagement();

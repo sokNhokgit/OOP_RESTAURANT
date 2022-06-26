@@ -1,5 +1,7 @@
 
 export class Contact {
-    private phoneNumber?: number;
-    private email?: string;
+    private phoneNumber: number;
+    constructor(private phonenumber: number){}
+
+
 }
