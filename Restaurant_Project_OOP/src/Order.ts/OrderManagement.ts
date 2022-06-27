@@ -1,13 +1,23 @@
-import { Orderlist } from "./Orderlist";
+import { Outsideorder } from "./Orderoutside";
+import { Insideorder } from "./Orderinside";
 export class OrderManagement {
-    private ordermanagements:Orderlist[]=[];
+    private listinside:Insideorder[]=[];
+    private listoutside:Outsideorder[]=[];
 
-    getOrdermanagement():Orderlist[]{
-        return this.ordermanagements;
+    getOrderinside():Insideorder[]{
+        return this.listinside;
     }
 
-    addOrderlist(orderlist:Orderlist){
-        this.ordermanagements.push(orderlist);
+    addOrderinside(order:Insideorder){
+        this.listinside.push(order);
+    }
+
+    getOrderoutside():Outsideorder[]{
+        return this.listoutside;
+    }
+
+    addOrderoutside(order:Outsideorder){
+        this.listoutside.push(order);
     }
 }
 

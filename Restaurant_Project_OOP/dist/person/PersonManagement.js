@@ -23,6 +23,12 @@ var PersonManagement = /** @class */ (function () {
         });
         return customers;
     };
+    PersonManagement.prototype.addInsideCustomer = function (customer) {
+        this.insideCustomers.push(customer);
+    };
+    PersonManagement.prototype.addOutsideCustomer = function (customer) {
+        this.outsideCustomer.push(customer);
+    };
     return PersonManagement;
 }());
 exports.PersonManagement = PersonManagement;

@@ -18,6 +18,9 @@ var FoodMenu = /** @class */ (function () {
     FoodMenu.prototype.getFood = function () {
         return this.foods;
     };
+    FoodMenu.prototype.foodMenuisEqual = function (foodmenucategory) {
+        return this.category == foodmenucategory;
+    };
     return FoodMenu;
 }());
 exports.FoodMenu = FoodMenu;

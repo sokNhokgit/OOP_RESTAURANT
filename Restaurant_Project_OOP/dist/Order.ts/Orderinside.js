@@ -15,26 +15,15 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 exports.__esModule = true;
-exports.InsideCustomer = exports.OutsideCustomer = void 0;
-var Person_1 = require("../Person");
-var OutsideCustomer = /** @class */ (function (_super) {
-    __extends(OutsideCustomer, _super);
-    function OutsideCustomer(name, age, gender, location, contact) {
-        var _this = _super.call(this, name, age, gender) || this;
-        _this.location = location;
-        _this.contact = contact;
+exports.Insideorder = void 0;
+var Order_1 = require("./Order");
+var Insideorder = /** @class */ (function (_super) {
+    __extends(Insideorder, _super);
+    function Insideorder(id, foododer, numberofdishes, customer) {
+        var _this = _super.call(this, id, foododer, numberofdishes) || this;
+        _this.customer = customer;
         return _this;
     }
-    OutsideCustomer.prototype.getCustomerLocation = function () {
-        return this.location;
-    };
-    return OutsideCustomer;
-}(Person_1.Person));
-exports.OutsideCustomer = OutsideCustomer;
-var InsideCustomer = /** @class */ (function () {
-    function InsideCustomer(cusomerID) {
-        this.cusomerID = cusomerID;
-    }
-    return InsideCustomer;
-}());
-exports.InsideCustomer = InsideCustomer;
+    return Insideorder;
+}(Order_1.Order));
+exports.Insideorder = Insideorder;

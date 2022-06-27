@@ -19,4 +19,8 @@ export class FoodMenu {
     getFood():Food[]{
         return this.foods;
     }
+
+    foodMenuisEqual(foodmenucategory:FoodCategory){
+        return this.category == foodmenucategory;
+    }
 }
