@@ -1,6 +1,5 @@
 import { Location } from "./Location";
 
 export class Restraurant {
-    
-    constructor(private name: string, private location: Location){}
+    constructor(protected name: string, protected location: Location){}
 }

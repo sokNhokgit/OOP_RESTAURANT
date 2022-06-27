@@ -19,9 +19,9 @@ import { Restraurant } from "./Restraurant";
 /**
  * create location
  */
-let location1 = new Location(1004, 'Norodom', 'Phnom Peng');
-let location2 = new Location(2004, 'Sisovat', 'Phnom Peng');
-let location3 = new Location(3004, 'Mean Chey', 'Phnom Peng');
+let location1 = new Location('Norodom', 'Phnom Peng');
+let location2 = new Location('Sisovat', 'Phnom Peng');
+let location3 = new Location('Mean Chey', 'Phnom Peng');
 /**
  * create restraurant
  */
@@ -30,10 +30,10 @@ let restraurant = new Restraurant('restraurant', location1);
 /**
  * create staff
  */
-let apple = new Chef('Apple', 29, Gender.MALE, StaffCategory.CHIEF);
-let banana = new Waiter('Banana', 35, Gender.FEMALE, StaffCategory.WAITER);
-let coconut = new Security('Coconut', 32, Gender.MALE, StaffCategory.SECURITY);
-let DragonFruit = new Cleaner('DragonFruit', 40, Gender.FEMALE, StaffCategory.CLEANER);
+let apple = new Chef('Apple', 29, Gender.MALE, 0987654321, StaffCategory.CHIEF);
+let banana = new Waiter('Banana', 35, Gender.FEMALE, 123456789, StaffCategory.WAITER);
+let coconut = new Security('Coconut', 32, Gender.MALE, 0918273645, StaffCategory.SECURITY);
+let DragonFruit = new Cleaner('DragonFruit', 40, Gender.FEMALE, 123498765, StaffCategory.CLEANER);
 
 /**
  * add staff to staff list
@@ -48,9 +48,9 @@ personManagement.addStaff(DragonFruit);
 /**
  * create outside customer
  */
-let romdual = new OutsideCustomer('Romdual', 25, Gender.FEMALE, location1, '0929394959');
-let shika = new OutsideCustomer('Shika', 30, Gender.FEMALE, location2, '0839248678');
-let nora = new OutsideCustomer('Nora', 40, Gender.MALE, location3, '0998943234');
+let romdual = new OutsideCustomer('Romdual', 25, Gender.FEMALE, 0929394959, location1);
+let shika = new OutsideCustomer('Shika', 30, Gender.FEMALE, 0839248678, location2);
+let nora = new OutsideCustomer('Nora', 40, Gender.MALE, 0998943234, location3);
 
 // management 
 let foodManagement = new FoodManagement();
