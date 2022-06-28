@@ -6,15 +6,19 @@ import { Security } from "./person/staff/Security";
 import { StaffCategory } from "./person/staff/StaffCategories";
 import { Waiter } from "./person/staff/Waiter";
 import { Food } from "./kitchen/Food";
-import { FoodManagement } from "./kitchen/FoodManagement";
+import { KitchenManagement } from "./kitchen/kitchenManagement";
 import { FoodCategory } from "./kitchen/FoodCategory";
 import { FoodMenu } from "./kitchen/FoodMenu";
 import { OrderManagement } from "./Order.ts/OrderManagement";
-import { Orderlist } from "./Order.ts/Orderlist";
-import { Order } from "./Order.ts/Order";
-import { OutsideCustomer } from "./person/customer/Customer";
+import { Outsideorder } from "./Order.ts/Orderoutside";
+import { Insideorder } from "./Order.ts/Orderinside";
+import { InsideCustomer, OutsideCustomer } from "./person/customer/Customer";
 import { Location } from "./Location";
 import { Restraurant } from "./Restraurant";
+import { Table } from "./table/Table";
+import { Tablestatus } from "./table/Tablestatus";
+import { TableManagement } from "./table/TableManagement";
+import { CustomerManagement } from "./person/customer/CustomerManagement";
 
 /**
  * create location
@@ -22,18 +26,25 @@ import { Restraurant } from "./Restraurant";
 let location1 = new Location('Norodom', 'Phnom Peng');
 let location2 = new Location('Sisovat', 'Phnom Peng');
 let location3 = new Location('Mean Chey', 'Phnom Peng');
+let location4 = new Location('395', 'Siem Reap');
+let location5 = new Location('5', 'Banteay Mean Chey');
 /**
  * create restraurant
  */
 let restraurant = new Restraurant('restraurant', location1);
+let KakoRestraurant = new Restraurant('Kako Restraurant', location4);
 
 /**
  * create staff
  */
-let apple = new Chef('Apple', 29, Gender.MALE, 0987654321, StaffCategory.CHIEF);
+let apple = new Chef('Apple', 29, Gender.MALE, 987654321, StaffCategory.CHIEF);
 let banana = new Waiter('Banana', 35, Gender.FEMALE, 123456789, StaffCategory.WAITER);
-let coconut = new Security('Coconut', 32, Gender.MALE, 0918273645, StaffCategory.SECURITY);
+let coconut = new Security('Coconut', 32, Gender.MALE, 918273645, StaffCategory.SECURITY);
 let DragonFruit = new Cleaner('DragonFruit', 40, Gender.FEMALE, 123498765, StaffCategory.CLEANER);
+let koko = new Chef('koko', 32, Gender.MALE, 987654321, StaffCategory.CHIEF);
+let vela = new Cleaner('Vela', 43, Gender.FEMALE, 123456789, StaffCategory.CLEANER);
+let kim = new Security('Kim', 28, Gender.MALE, 678954321, StaffCategory.SECURITY);
+let bobo = new Waiter('Bobo', 25, Gender.FEMALE, 214365879, StaffCategory.WAITER)
 
 /**
  * add staff to staff list
@@ -48,64 +59,138 @@ personManagement.addStaff(DragonFruit);
 /**
  * create outside customer
  */
-let romdual = new OutsideCustomer('Romdual', 25, Gender.FEMALE, 0929394959, location1);
-let shika = new OutsideCustomer('Shika', 30, Gender.FEMALE, 0839248678, location2);
-let nora = new OutsideCustomer('Nora', 40, Gender.MALE, 0998943234, location3);
+let romdual = new OutsideCustomer('Romdual', 25, Gender.FEMALE, 929394959, location1);
+let shika = new OutsideCustomer('Shika', 30, Gender.FEMALE, 839248678, location2);
+let nora = new OutsideCustomer('Nora', 40, Gender.MALE, 998943234, location3);
 
-// management 
-let foodManagement = new FoodManagement();
+/**
+ * create customer inside
+ */
+let nika = new InsideCustomer(1);
+let chorkev = new InsideCustomer(2);
+let lin = new InsideCustomer(3);
+let seavheng = new InsideCustomer(4);
+
+/**
+ * add customer to the list
+ */
+personManagement.addOutsideCustomer(romdual);
+personManagement.addOutsideCustomer(shika);
+personManagement.addOutsideCustomer(nora);
+
+personManagement.addInsideCustomer(nika);
+personManagement.addInsideCustomer(chorkev);
+personManagement.addInsideCustomer(lin);
+personManagement.addInsideCustomer(seavheng);
+
+/**
+ * create food management
+ */
+let foodManagement = new KitchenManagement();
+
+/**
+ * create order management
+ */
 let orderManagement = new OrderManagement();
 
 // Menu foods
-let foodMenu1 = new FoodMenu(FoodCategory.SOUP);
-let foodMenu2 = new FoodMenu(FoodCategory.DRINK);
-let foodMenu3 = new FoodMenu(FoodCategory.MEAT);
-let foodMenu4 = new FoodMenu(FoodCategory.DESERT);
+let soupMenu = new FoodMenu(FoodCategory.SOUP);
+let drinkMenu = new FoodMenu(FoodCategory.DRINK);
+let meatMenu = new FoodMenu(FoodCategory.MEAT);
+let desertMenu = new FoodMenu(FoodCategory.DESERT);
 
-//orderlist
-let orderlisttable1 = new Orderlist(1);
-let orderlisttable2 = new Orderlist(2);
-let orderlisttable3 = new Orderlist(3);
-let orderlisttable4 = new Orderlist(4);
 
-// foods Items
-let korko = new Food(1,"Somlor kor ko",5,FoodCategory.SOUP);
-let greenTea = new Food(2,"Green Tea",1,FoodCategory.DRINK);
-let loklak = new Food(3,"loklak",5,FoodCategory.MEAT);
-let proher = new Food(4,"proher",5,FoodCategory.SOUP); 
-let cocacola = new Food(5,"cocacola",2,FoodCategory.DRINK);
-let saray = new Food(6,"saray",1,FoodCategory.DESERT);
-let bonamSiem = new Food(7,"bongAmSiem",1,FoodCategory.DESERT);
+/**
+ * create food item
+*/
+let korko = new Food(1,"Somlor kor ko",5);
+let greenTea = new Food(2,"Green Tea",1);
+let loklak = new Food(3,"loklak",5);
+let proher = new Food(4,"proher",5); 
+let cocacola = new Food(5,"cocacola",2);
+let saray = new Food(6,"saray",1);
+let bonamSiem = new Food(7,"bongAmSiem",1);
 
-// order
-let customer1order = new Order(1,1,korko,1);
-let customer2order = new Order(2,2,greenTea,1);
-let customer3order = new Order(3,3,proher,1);
-let customer4order = new Order(4,4,loklak,1);
+/**
+ *create table  and table management
+ */
+let tablemanagement = new TableManagement();
+let table1 = new Table(1,2,Tablestatus.NEW);
+let table2 = new Table(2,2,Tablestatus.NEW);
+let table3 = new Table(3,2,Tablestatus.NEW);
+let table4 = new Table(4,2,Tablestatus.NEW);
 
-// add items place
-foodMenu1.addFood(korko);
-foodMenu1.addFood(proher);
-foodMenu2.addFood(greenTea);
-foodMenu2.addFood(cocacola);
-foodMenu3.addFood(loklak);
-foodMenu4.addFood(saray);
-foodMenu4.addFood(bonamSiem);
+/**
+ * order inside
+ */
+let insideorder1 = new Insideorder(1,korko,1,nika);
+let insideorder2 = new Insideorder(2,greenTea,1,chorkev);
+let insideorder3 = new Insideorder(3,proher,1,lin);
+let insideorder4 = new Insideorder(4,loklak,1,seavheng);
 
-orderlisttable1.addOrder(customer1order);
-orderlisttable2.addOrder(customer2order);
-orderlisttable3.addOrder(customer3order);
-orderlisttable4.addOrder(customer4order);
+/**
+ * add inside order to the table and add table into table management
+ */
+table1.setOrder(insideorder1);
+table2.setOrder(insideorder2);
+table3.setOrder(insideorder3);
+table4.setOrder(insideorder4);
 
-// managemnt add place
-foodManagement.addFoodmenu(foodMenu1);
-foodManagement.addFoodmenu(foodMenu2);
-foodManagement.addFoodmenu(foodMenu3);
-foodManagement.addFoodmenu(foodMenu4);
+tablemanagement.addTable(table1);
+tablemanagement.addTable(table2);
+tablemanagement.addTable(table3);
+tablemanagement.addTable(table4);
 
-orderManagement.addOrderlist(orderlisttable1);
-orderManagement.addOrderlist(orderlisttable2);
-orderManagement.addOrderlist(orderlisttable3);
-orderManagement.addOrderlist(orderlisttable4);
+/***
+ * order outside
+ */
+let outsideorder1 = new Outsideorder(1,cocacola,1,romdual);
+let outsideorder2 = new Outsideorder(2,korko,2,shika);
+let outsideorder3 = new Outsideorder(3,loklak,1,nora);
 
-console.log(orderlisttable2.getOrderlist());
+/**
+ * create food menu by it category
+ */
+soupMenu.addFood(korko);
+soupMenu.addFood(proher);
+drinkMenu.addFood(greenTea);
+drinkMenu.addFood(cocacola);
+meatMenu.addFood(loklak);
+desertMenu.addFood(saray);
+desertMenu.addFood(bonamSiem);
+
+/**
+ * add food menu into food management
+ */
+foodManagement.addFoodmenu(soupMenu);
+foodManagement.addFoodmenu(drinkMenu);
+foodManagement.addFoodmenu(meatMenu);
+foodManagement.addFoodmenu(desertMenu);
+
+/**
+ * add order list inside and outside into order management
+ */
+orderManagement.addOrderinside(insideorder1);
+orderManagement.addOrderinside(insideorder2);
+orderManagement.addOrderinside(insideorder3);
+orderManagement.addOrderinside(insideorder4);
+orderManagement.addOrderoutside(outsideorder1);
+orderManagement.addOrderoutside(outsideorder2);
+orderManagement.addOrderoutside(outsideorder3);
+
+// console.log(foodManagement.getFoodmenuwithCategory(FoodCategory.DRINK));
+// console.log(foodManagement.getfoodMenu());
+// console.log(tablemanagement.tablefree());
+// console.log(tablemanagement.getTable());
+console.log(personManagement.getAllStaff());
+// console.log(personManagement.getAllStaffBySalary(0));
+// console.log(personManagement.getOnlyStaffCategory(StaffCategory.CHIEF));
+console.log(personManagement.getAllInsideCustomer());
+console.log(personManagement.getAllOutsideCustomer());
+
+
+
+
+
+
+                                                   

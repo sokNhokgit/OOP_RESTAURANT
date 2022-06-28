@@ -26,8 +26,8 @@ var FoodArea;
 })(FoodArea = exports.FoodArea || (exports.FoodArea = {}));
 var Chef = /** @class */ (function (_super) {
     __extends(Chef, _super);
-    function Chef(name, age, gender, staffCategory) {
-        return _super.call(this, staffCategory, name, age, gender) || this;
+    function Chef(name, age, gender, phoneNumber, staffCategory) {
+        return _super.call(this, staffCategory, name, age, gender, phoneNumber) || this;
     }
     Chef.prototype.setFoodArea = function (foodArea) {
         this.foodArea = foodArea;

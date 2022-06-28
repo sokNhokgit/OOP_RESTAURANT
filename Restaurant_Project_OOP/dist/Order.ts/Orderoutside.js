@@ -15,13 +15,13 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 exports.__esModule = true;
-exports.Security = void 0;
-var Staff_1 = require("./Staff");
-var Security = /** @class */ (function (_super) {
-    __extends(Security, _super);
-    function Security(name, age, gender, phoneNumber, staffCategory) {
-        return _super.call(this, staffCategory, name, age, gender, phoneNumber) || this;
+exports.Outsideorder = void 0;
+var Order_1 = require("./Order");
+var Outsideorder = /** @class */ (function (_super) {
+    __extends(Outsideorder, _super);
+    function Outsideorder(id, foodorder, numberofdishes, customer) {
+        return _super.call(this, id, foodorder, numberofdishes) || this;
     }
-    return Security;
-}(Staff_1.Staff));
-exports.Security = Security;
+    return Outsideorder;
+}(Order_1.Order));
+exports.Outsideorder = Outsideorder;

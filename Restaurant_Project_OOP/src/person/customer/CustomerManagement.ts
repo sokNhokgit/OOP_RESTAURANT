@@ -4,8 +4,8 @@ export class CustomerManagement{
     private insideCustomer:InsideCustomer[] = [];
     private outsideCustomer: OutsideCustomer[] = [];
 
-    addInsideCustomer(customer: InsideCustomer){
-        this.insideCustomer.push(customer);
+    getOutsideCustomer(){
+        return this.outsideCustomer;
     }
 
     getInsideCustomer(){
@@ -17,7 +17,7 @@ export class CustomerManagement{
         this.outsideCustomer.push(customer);
     }
 
-    getOutsideCustomer(){
-        return this.outsideCustomer;
+    addInsideCustomer(customer: InsideCustomer){
+        this.insideCustomer.push(customer);
     }
 }

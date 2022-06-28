@@ -1,8 +1,8 @@
 export enum FoodCategory {
-    DRINK,
-    MEAT,
-    FISH,
-    VEGETABLE,
-    DESERT,
-    SOUP
+    DRINK = 'Drink',
+    MEAT = 'Meat',
+    FISH = 'Fish',
+    VEGETABLE = 'Vegetable',
+    DESERT = 'Desert',
+    SOUP = 'Soup'
 }

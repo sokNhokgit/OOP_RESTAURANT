@@ -3,13 +3,20 @@ exports.__esModule = true;
 exports.OrderManagement = void 0;
 var OrderManagement = /** @class */ (function () {
     function OrderManagement() {
-        this.ordermanagements = [];
+        this.listinside = [];
+        this.listoutside = [];
     }
-    OrderManagement.prototype.getOrdermanagement = function () {
-        return this.ordermanagements;
+    OrderManagement.prototype.getOrderinside = function () {
+        return this.listinside;
     };
-    OrderManagement.prototype.addOrderlist = function (orderlist) {
-        this.ordermanagements.push(orderlist);
+    OrderManagement.prototype.addOrderinside = function (order) {
+        this.listinside.push(order);
+    };
+    OrderManagement.prototype.getOrderoutside = function () {
+        return this.listoutside;
+    };
+    OrderManagement.prototype.addOrderoutside = function (order) {
+        this.listoutside.push(order);
     };
     return OrderManagement;
 }());

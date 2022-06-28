@@ -19,8 +19,8 @@ exports.Staff = void 0;
 var Person_1 = require("../Person");
 var Staff = /** @class */ (function (_super) {
     __extends(Staff, _super);
-    function Staff(staffCategory, name, age, gender) {
-        var _this = _super.call(this, name, age, gender) || this;
+    function Staff(staffCategory, name, age, gender, phoneNumber) {
+        var _this = _super.call(this, name, age, gender, phoneNumber) || this;
         _this.staffCategory = staffCategory;
         _this.salary = 0;
         return _this;

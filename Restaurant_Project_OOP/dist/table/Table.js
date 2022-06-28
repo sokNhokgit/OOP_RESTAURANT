@@ -2,24 +2,25 @@
 exports.__esModule = true;
 exports.Table = void 0;
 var Table = /** @class */ (function () {
-    function Table(tableid, tablestatus) {
+    function Table(tableid, chairnumber, tablestatus) {
         this.tableid = tableid;
+        this.chairnumber = chairnumber;
         this.tablestatus = tablestatus;
-        this.chairs = [];
+        this.ordered = undefined;
     }
-    Table.prototype.addChair = function (chair) {
-        this.chairs.push(chair);
+    Table.prototype.setOrder = function (order) {
+        this.ordered = order;
     };
-    Table.prototype.getChair = function () {
-        return this.chairs;
-    };
-    Table.prototype.istablefree = function () {
-        var chairs = this.chairs;
-        var chairfree = true;
-        if (chairs.length > 0) {
-            chairfree = false;
+    Table.prototype.istableFree = function () {
+        var isfree = true;
+        if (this.ordered !== undefined) {
+            isfree = false;
         }
-        return chairfree;
+        return isfree;
+    };
+    Table.prototype.customerLeft = function () {
+        this.ordered = undefined;
+        return "table id number " + this.tableid + " is free now";
     };
     return Table;
 }());

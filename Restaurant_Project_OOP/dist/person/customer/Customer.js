@@ -19,8 +19,8 @@ exports.InsideCustomer = exports.OutsideCustomer = void 0;
 var Person_1 = require("../Person");
 var OutsideCustomer = /** @class */ (function (_super) {
     __extends(OutsideCustomer, _super);
-    function OutsideCustomer(name, age, gender, location) {
-        var _this = _super.call(this, name, age, gender) || this;
+    function OutsideCustomer(name, age, gender, phoneNumber, location) {
+        var _this = _super.call(this, name, age, gender, phoneNumber) || this;
         _this.location = location;
         return _this;
     }

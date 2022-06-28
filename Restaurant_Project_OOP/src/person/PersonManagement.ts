@@ -1,4 +1,5 @@
 import { InsideCustomer, OutsideCustomer } from "./customer/Customer";
+import { Gender } from "./Gender";
 import { Staff } from "./staff/Staff";
 import { StaffCategory } from "./staff/StaffCategories";
 
@@ -13,6 +14,10 @@ export class PersonManagement{
     
     getAllStaff(){
         return this.staffs;
+    }
+
+    getAllStaffBySalary(salary: number){
+
     }
 
     getOnlyStaffCategory(staffCategory: StaffCategory){
@@ -30,7 +35,15 @@ export class PersonManagement{
         this.insideCustomers.push(customer);
     }
 
+    getAllInsideCustomer(){
+        return this.insideCustomers;
+    }
+    
     addOutsideCustomer(customer: OutsideCustomer){
         this.outsideCustomer.push(customer);
+    }
+    
+    getAllOutsideCustomer(){
+        return this.outsideCustomer;
     }
 }

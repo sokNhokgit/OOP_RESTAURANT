@@ -5,7 +5,7 @@ import { Person } from "../Person";
 
 
 export class OutsideCustomer extends Person{
-    constructor(name: string, age: number, gender: Gender,phoneNumber: number, private location: Location,){
+    constructor(name: string, age: number, gender: Gender,phoneNumber: number, private location: Location){
         super(name, age, gender, phoneNumber);
     }
 

@@ -13,6 +13,8 @@ var PersonManagement = /** @class */ (function () {
     PersonManagement.prototype.getAllStaff = function () {
         return this.staffs;
     };
+    PersonManagement.prototype.getAllStaffBySalary = function (salary) {
+    };
     PersonManagement.prototype.getOnlyStaffCategory = function (staffCategory) {
         var customers = [];
         var AllCutomers = this.getAllStaff();
@@ -22,6 +24,18 @@ var PersonManagement = /** @class */ (function () {
             }
         });
         return customers;
+    };
+    PersonManagement.prototype.addInsideCustomer = function (customer) {
+        this.insideCustomers.push(customer);
+    };
+    PersonManagement.prototype.getAllInsideCustomer = function () {
+        return this.insideCustomers;
+    };
+    PersonManagement.prototype.addOutsideCustomer = function (customer) {
+        this.outsideCustomer.push(customer);
+    };
+    PersonManagement.prototype.getAllOutsideCustomer = function () {
+        return this.outsideCustomer;
     };
     return PersonManagement;
 }());

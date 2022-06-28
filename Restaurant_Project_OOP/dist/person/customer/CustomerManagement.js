@@ -6,8 +6,8 @@ var CustomerManagement = /** @class */ (function () {
         this.insideCustomer = [];
         this.outsideCustomer = [];
     }
-    CustomerManagement.prototype.addInsideCustomer = function (customer) {
-        this.insideCustomer.push(customer);
+    CustomerManagement.prototype.getOutsideCustomer = function () {
+        return this.outsideCustomer;
     };
     CustomerManagement.prototype.getInsideCustomer = function () {
         return this.insideCustomer;
@@ -15,8 +15,8 @@ var CustomerManagement = /** @class */ (function () {
     CustomerManagement.prototype.addOutsideCustomer = function (customer) {
         this.outsideCustomer.push(customer);
     };
-    CustomerManagement.prototype.getOutsideCustomer = function () {
-        return this.outsideCustomer;
+    CustomerManagement.prototype.addInsideCustomer = function (customer) {
+        this.insideCustomer.push(customer);
     };
     return CustomerManagement;
 }());
