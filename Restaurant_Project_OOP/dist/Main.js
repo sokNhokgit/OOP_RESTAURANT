@@ -20,6 +20,10 @@ var Restraurant_1 = require("./Restraurant");
 var Table_1 = require("./table/Table");
 var Tablestatus_1 = require("./table/Tablestatus");
 var TableManagement_1 = require("./table/TableManagement");
+var Datetime_1 = require("./date/Datetime");
+var paybybankaccount_1 = require("./payment/paybybankaccount");
+var paydirectmoney_1 = require("./payment/paydirectmoney");
+var paymentManagement_1 = require("./payment/paymentManagement");
 /**
  * create location
  */
@@ -37,6 +41,14 @@ var apple = new Chef_1.Chef('Apple', 29, Gender_1.Gender.MALE, StaffCategories_1
 var banana = new Waiter_1.Waiter('Banana', 35, Gender_1.Gender.FEMALE, StaffCategories_1.StaffCategory.WAITER);
 var coconut = new Security_1.Security('Coconut', 32, Gender_1.Gender.MALE, StaffCategories_1.StaffCategory.SECURITY);
 var DragonFruit = new Cleaner_1.Cleaner('DragonFruit', 40, Gender_1.Gender.FEMALE, StaffCategories_1.StaffCategory.CLEANER);
+/**
+ * create date time
+ */
+var date1 = new Datetime_1.Datetime(12, 11, 2022, 4);
+var date2 = new Datetime_1.Datetime(25, 11, 2022, 2);
+var date3 = new Datetime_1.Datetime(11, 11, 2022, 9);
+var date4 = new Datetime_1.Datetime(15, 11, 2022, 7);
+var date5 = new Datetime_1.Datetime(8, 11, 2022, 8);
 /**
  * add staff to staff list
  */
@@ -110,9 +122,17 @@ tablemanagement.addTable(table4);
 /***
  * order outside
  */
-var outsideorder1 = new Orderoutside_1.Outsideorder(1, cocacola, 1, romdual);
-var outsideorder2 = new Orderoutside_1.Outsideorder(2, korko, 2, shika);
-var outsideorder3 = new Orderoutside_1.Outsideorder(3, loklak, 1, nora);
+var outsideorder1 = new Orderoutside_1.Outsideorder(1, cocacola, 1, date1, romdual);
+var outsideorder2 = new Orderoutside_1.Outsideorder(2, korko, 2, date2, shika);
+var outsideorder3 = new Orderoutside_1.Outsideorder(3, loklak, 1, date3, nora);
+/**
+ * create payment and payment management
+ */
+var paymentmanagement = new paymentManagement_1.PaymentManagement();
+var pay1 = new paydirectmoney_1.Paydirectmoney(5, insideorder1);
+var pay2 = new paybybankaccount_1.Paybybankaccount("200 090 333", 5, outsideorder1);
+paymentmanagement.addPay(pay1);
+paymentmanagement.addPay(pay2);
 /**
  * create food menu by it category
  */
@@ -140,4 +160,4 @@ orderManagement.addOrderinside(insideorder4);
 orderManagement.addOrderoutside(outsideorder1);
 orderManagement.addOrderoutside(outsideorder2);
 orderManagement.addOrderoutside(outsideorder3);
-console.log(foodManagement.getFoodmenuwithCategory(FoodCategory_1.FoodCategory.FISH));
+console.log(paymentmanagement.isOrdergetPaid(outsideorder1));

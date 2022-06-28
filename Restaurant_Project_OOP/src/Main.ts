@@ -18,7 +18,10 @@ import { Restraurant } from "./Restraurant";
 import { Table } from "./table/Table";
 import { Tablestatus } from "./table/Tablestatus";
 import { TableManagement } from "./table/TableManagement";
-
+import { Datetime } from "./date/Datetime";
+import { Paybybankaccount } from "./payment/paybybankaccount";
+import { Paydirectmoney } from "./payment/paydirectmoney";
+import { PaymentManagement } from "./payment/paymentManagement";
 /**
  * create location
  */
@@ -37,6 +40,15 @@ let apple = new Chef('Apple', 29, Gender.MALE, StaffCategory.CHIEF);
 let banana = new Waiter('Banana', 35, Gender.FEMALE, StaffCategory.WAITER);
 let coconut = new Security('Coconut', 32, Gender.MALE, StaffCategory.SECURITY);
 let DragonFruit = new Cleaner('DragonFruit', 40, Gender.FEMALE, StaffCategory.CLEANER);
+
+/**
+ * create date time
+ */
+let date1 = new Datetime(12,11,2022,4);
+let date2 = new Datetime(25,11,2022,2);
+let date3 = new Datetime(11,11,2022,9);
+let date4 = new Datetime(15,11,2022,7);
+let date5 = new Datetime(8,11,2022,8);
 
 /**
  * add staff to staff list
@@ -123,10 +135,17 @@ tablemanagement.addTable(table4);
 /***
  * order outside
  */
-let outsideorder1 = new Outsideorder(1,cocacola,1,romdual);
-let outsideorder2 = new Outsideorder(2,korko,2,shika);
-let outsideorder3 = new Outsideorder(3,loklak,1,nora);
-
+let outsideorder1 = new Outsideorder(1,cocacola,1,date1,romdual);
+let outsideorder2 = new Outsideorder(2,korko,2,date2,shika);
+let outsideorder3 = new Outsideorder(3,loklak,1,date3,nora);
+/**
+ * create payment and payment management
+ */
+let paymentmanagement = new PaymentManagement();
+let pay1 = new Paydirectmoney(5,insideorder1);
+let pay2 = new Paybybankaccount("200 090 333",5,outsideorder1);
+paymentmanagement.addPay(pay1);
+paymentmanagement.addPay(pay2);
 /**
  * create food menu by it category
  */
@@ -157,5 +176,5 @@ orderManagement.addOrderoutside(outsideorder1);
 orderManagement.addOrderoutside(outsideorder2);
 orderManagement.addOrderoutside(outsideorder3);
 
-console.log(foodManagement.getFoodmenuwithCategory(FoodCategory.FISH));
+console.log(paymentmanagement.isOrdergetPaid(outsideorder1));
                                                    
