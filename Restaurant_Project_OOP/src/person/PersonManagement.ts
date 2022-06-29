@@ -1,6 +1,5 @@
 import { InsideCustomer, OutsideCustomer } from "./customer/Customer";
 import { Staff } from "./staff/Staff";
-import { StaffCategory } from "./staff/StaffCategories";
 
 export class PersonManagement{
     private staffs: Staff[] = [];
@@ -11,15 +10,14 @@ export class PersonManagement{
         this.staffs.push(staff);
     }
     
-    getAllStaff(){
+    getAllStaff():Staff[]{
         return this.staffs;
     }
-
-    getOnlyStaffCategory(staffCategory: StaffCategory){
+    getsaff(staff: Staff){
         let customers:Staff[] = [];
         let AllCutomers = this.getAllStaff();
         AllCutomers.forEach(customer => {
-            if(customer.isEqual(staffCategory)){
+            if(customer.isEqual(staff)){
                 customers.push(customer);
             }
         });
@@ -30,7 +28,15 @@ export class PersonManagement{
         this.insideCustomers.push(customer);
     }
 
+    getAllInsideCustomer():InsideCustomer[]{
+        return this.insideCustomers;
+    }
+    
     addOutsideCustomer(customer: OutsideCustomer){
         this.outsideCustomer.push(customer);
+    }
+    
+    getAllOutsideCustomer(){
+        return this.outsideCustomer;
     }
 }

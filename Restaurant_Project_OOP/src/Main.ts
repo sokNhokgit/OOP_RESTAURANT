@@ -3,7 +3,6 @@ import { PersonManagement } from "./person/PersonManagement";
 import { Chef } from "./person/staff/Chef";
 import { Cleaner } from "./person/staff/Cleaner";
 import { Security } from "./person/staff/Security";
-import { StaffCategory } from "./person/staff/StaffCategories";
 import { Waiter } from "./person/staff/Waiter";
 import { Food } from "./kitchen/Food";
 import { KitchenManagement } from "./kitchen/kitchenManagement";
@@ -22,76 +21,32 @@ import { Datetime } from "./date/Datetime";
 import { Paybybankaccount } from "./payment/paybybankaccount";
 import { Paydirectmoney } from "./payment/paydirectmoney";
 import { PaymentManagement } from "./payment/paymentManagement";
-/**
- * create location
- */
-let location1 = new Location(1004, 'Norodom', 'Phnom Peng');
-let location2 = new Location(2004, 'Sisovat', 'Phnom Peng');
-let location3 = new Location(3004, 'Mean Chey', 'Phnom Peng');
-/**
- * create restraurant
- */
-let restraurant = new Restraurant('restraurant', location1);
+import { Booking } from "./Booking/Booking";
+import { BookingManagement } from "./Booking/BookingManagement";
 
-/**
- * create staff
- */
-let apple = new Chef('Apple', 29, Gender.MALE);
-let banana = new Waiter('Banana', 35, Gender.FEMALE);
-let waiter2 = new Waiter('waiter2',23,Gender.FEMALE);
-let coconut = new Security('Coconut', 32, Gender.MALE);
-let DragonFruit = new Cleaner('DragonFruit', 40, Gender.FEMALE);
-
-/**
- * create date time
- */
+let location1 = new Location('Norodom', 'Phnom Peng');
+let location2 = new Location('Sisovat', 'Phnom Peng');
+let location3 = new Location('Mean Chey', 'Phnom Peng');
+let location4 = new Location('395', 'Siem Reap');
+let location5 = new Location('5', 'Banteay Mean Chey');
+let KakoRestraurant = new Restraurant('Kako Restraurant', location4);
+let apple = new Chef('Apple', 29, Gender.MALE,977403175);
+let banana = new Waiter('Banana', 35, Gender.FEMALE,977493175);
+let waiter2 = new Waiter('waiter2',23,Gender.FEMALE,977493175);
+let coconut = new Security('Coconut', 32, Gender.MALE,977493175);
+let DragonFruit = new Cleaner('DragonFruit', 40, Gender.FEMALE,977493175);
 let date1 = new Datetime(12,11,2022,4);
-
-
-/**
- * add staff to staff list
- */
-let personManagement = new PersonManagement();
-personManagement.addStaff(apple);
-personManagement.addStaff(banana);
-personManagement.addStaff(coconut);
-personManagement.addStaff(DragonFruit);
-
-
-/**
- * create outside customer
- */
-let romdual = new OutsideCustomer('Romdual', 25, Gender.FEMALE, location1, '0929394959');
-let shika = new OutsideCustomer('Shika', 30, Gender.FEMALE, location2, '0839248678');
-let nora = new OutsideCustomer('Nora', 40, Gender.MALE, location3, '0998943234');
-
-/**
- * create customer inside
- */
+let romdual = new OutsideCustomer('Romdual', 25, Gender.FEMALE, 929394959, location1);
+let shika = new OutsideCustomer('Shika', 30, Gender.FEMALE, 839248678, location2);
+let nora = new OutsideCustomer('Nora', 40, Gender.MALE, 998943234, location3);
 let nika = new InsideCustomer(1);
 let chorkev = new InsideCustomer(2);
 let lin = new InsideCustomer(3);
 let seavheng = new InsideCustomer(4);
-
-/**
- * create food management
- */
-let foodManagement = new KitchenManagement();
-/**
- * create order management
- */
-let orderManagement = new OrderManagement();
-
-// Menu foods
 let soupMenu = new FoodMenu(FoodCategory.SOUP);
 let drinkMenu = new FoodMenu(FoodCategory.DRINK);
 let meatMenu = new FoodMenu(FoodCategory.MEAT);
 let desertMenu = new FoodMenu(FoodCategory.DESERT);
-
-
-/**
- * create food item
- */
 let korko = new Food(1,"Somlor kor ko",5);
 let greenTea = new Food(2,"Green Tea",1);
 let loklak = new Food(3,"loklak",5);
@@ -99,54 +54,46 @@ let proher = new Food(4,"proher",5);
 let cocacola = new Food(5,"cocacola",2);
 let saray = new Food(6,"saray",1);
 let bonamSiem = new Food(7,"bongAmSiem",1);
-
-/**
- *create table  and table management
- */
-let tablemanagement = new TableManagement();
 let table1 = new Table(1,2,Tablestatus.NEW);
 let table2 = new Table(2,2,Tablestatus.NEW);
 let table3 = new Table(3,2,Tablestatus.NEW);
 let table4 = new Table(4,2,Tablestatus.NEW);
-
-/**
- * order inside
- */
 let insideorder1 = new Insideorder(1,korko,1,banana,nika);
 let insideorder2 = new Insideorder(2,greenTea,1,banana,chorkev);
 let insideorder3 = new Insideorder(3,proher,1,banana,lin);
 let insideorder4 = new Insideorder(4,loklak,1,banana,seavheng);
+let outsideorder1 = new Outsideorder(1,cocacola,1,date1,romdual);
+let outsideorder2 = new Outsideorder(2,korko,2,date1,shika);
+let outsideorder3 = new Outsideorder(3,loklak,1,date1,nora);
+let pay1 = new Paydirectmoney(5,insideorder1);
+let pay2 = new Paybybankaccount("200 090 333",5,outsideorder1);
+let pay3 = new Paydirectmoney(5,insideorder2);
+let pay4 = new Paydirectmoney(5,insideorder3);
+let pay5 = new Paydirectmoney(5,insideorder4);
+let booking1 = new Booking(2, 10, romdual, date1, date1);
+let booking2 = new Booking(1, 2, shika, date1, date1);
+let booking3 = new Booking(1, 2, shika, date1, date1);
+let booking4 = new Booking(1, 2, nora, date1, date1);
+let kitchenmanagement = new KitchenManagement();
+let ordermanagement = new OrderManagement();
+let paymentmanagement = new PaymentManagement();
+let bookingManagement = new BookingManagement();
+let tablemanagement = new TableManagement();
+let personManagement = new PersonManagement();
 
-/**
- * add inside order to the table and add table into table management
- */
+KakoRestraurant.personmanagement.addStaff(apple);
+KakoRestraurant.personmanagement.addStaff(banana);
+KakoRestraurant.personmanagement.addStaff(coconut);
+KakoRestraurant.personmanagement.addStaff(DragonFruit);
 table1.setOrder(insideorder1);
 table2.setOrder(insideorder2);
 table3.setOrder(insideorder3);
 table4.setOrder(insideorder4);
-
-tablemanagement.addTable(table1);
-tablemanagement.addTable(table2);
-tablemanagement.addTable(table3);
-tablemanagement.addTable(table4);
-
-/***
- * order outside
- */
-let outsideorder1 = new Outsideorder(1,cocacola,1,date1,romdual);
-let outsideorder2 = new Outsideorder(2,korko,2,date1,shika);
-let outsideorder3 = new Outsideorder(3,loklak,1,date1,nora);
-/**
- * create payment and payment management
- */
-let paymentmanagement = new PaymentManagement();
-let pay1 = new Paydirectmoney(5,insideorder1);
-let pay2 = new Paybybankaccount("200 090 333",5,outsideorder1);
 paymentmanagement.addPay(pay1);
 paymentmanagement.addPay(pay2);
-/**
- * create food menu by it category
- */
+paymentmanagement.addPay(pay3);
+paymentmanagement.addPay(pay4);
+paymentmanagement.addPay(pay5);
 soupMenu.addFood(korko);
 soupMenu.addFood(proher);
 drinkMenu.addFood(greenTea);
@@ -154,26 +101,35 @@ drinkMenu.addFood(cocacola);
 meatMenu.addFood(loklak);
 desertMenu.addFood(saray);
 desertMenu.addFood(bonamSiem);
-
-/**
- * add food menu into food management
- */
-foodManagement.addFoodmenu(soupMenu);
-foodManagement.addFoodmenu(drinkMenu);
-foodManagement.addFoodmenu(meatMenu);
-foodManagement.addFoodmenu(desertMenu);
-
-/**
- * add order list inside and outside into order management
- */
-orderManagement.addOrderinside(insideorder1);
-orderManagement.addOrderinside(insideorder2);
-orderManagement.addOrderinside(insideorder3);
-orderManagement.addOrderinside(insideorder4);
-orderManagement.addOrderoutside(outsideorder1);
-orderManagement.addOrderoutside(outsideorder2);
-orderManagement.addOrderoutside(outsideorder3);
-
-
-console.log(restraurant);
-                                                   
+KakoRestraurant.personmanagement.addOutsideCustomer(romdual);
+KakoRestraurant.personmanagement.addOutsideCustomer(shika);
+KakoRestraurant.personmanagement.addOutsideCustomer(nora);
+KakoRestraurant.personmanagement.addInsideCustomer(nika);
+KakoRestraurant.personmanagement.addInsideCustomer(chorkev);
+KakoRestraurant.personmanagement.addInsideCustomer(lin);
+KakoRestraurant.personmanagement.addInsideCustomer(seavheng);
+tablemanagement.addTable(table1);
+tablemanagement.addTable(table2);
+tablemanagement.addTable(table3);
+tablemanagement.addTable(table4);
+kitchenmanagement.addFoodmenu(soupMenu);
+kitchenmanagement.addFoodmenu(drinkMenu);
+kitchenmanagement.addFoodmenu(meatMenu);
+kitchenmanagement.addFoodmenu(desertMenu);
+ordermanagement.addOrderinside(insideorder1);
+ordermanagement.addOrderinside(insideorder2);
+ordermanagement.addOrderinside(insideorder3);
+ordermanagement.addOrderinside(insideorder4);
+ordermanagement.addOrderoutside(outsideorder1);
+ordermanagement.addOrderoutside(outsideorder2);
+ordermanagement.addOrderoutside(outsideorder3);
+bookingManagement.addBooking(booking1);
+bookingManagement.addBooking(booking2);
+bookingManagement.addBooking(booking3);
+bookingManagement.addBooking(booking4);
+KakoRestraurant.paymentManagement = paymentmanagement;
+KakoRestraurant.kitchenmanagement = kitchenmanagement;
+KakoRestraurant.ordersmanagement = ordermanagement;
+KakoRestraurant.tablemanagement = tablemanagement;
+console.log(paymentmanagement.isOrdergetPaid(outsideorder1))
+                                            

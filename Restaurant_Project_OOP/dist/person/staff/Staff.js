@@ -19,8 +19,8 @@ exports.Staff = void 0;
 var Person_1 = require("../Person");
 var Staff = /** @class */ (function (_super) {
     __extends(Staff, _super);
-    function Staff(name, age, gender) {
-        var _this = _super.call(this, name, age, gender) || this;
+    function Staff(name, age, gender, phoneNumber) {
+        var _this = _super.call(this, name, age, gender, phoneNumber) || this;
         _this.salary = 0;
         return _this;
     }
@@ -29,6 +29,9 @@ var Staff = /** @class */ (function (_super) {
     };
     Staff.prototype.getSalary = function () {
         return this.salary;
+    };
+    Staff.prototype.isEqual = function (staff) {
+        return this.name === staff.name && this.age === staff.age && this.gender === this.gender && this.phoneNumber === this.phoneNumber;
     };
     return Staff;
 }(Person_1.Person));

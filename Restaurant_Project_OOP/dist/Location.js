@@ -2,8 +2,7 @@
 exports.__esModule = true;
 exports.Location = void 0;
 var Location = /** @class */ (function () {
-    function Location(houseNumber, street, city) {
-        this.houseNumber = houseNumber;
+    function Location(street, city) {
         this.street = street;
         this.city = city;
     }

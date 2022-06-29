@@ -6,6 +6,4 @@ export class Pay {
     getOrder():Order{
         return this.ordered;
     }
-
-
 }

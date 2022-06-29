@@ -8,6 +8,9 @@ var Datetime = /** @class */ (function () {
         this.year = year;
         this.time = time;
     }
+    Datetime.prototype.isEqual = function (other) {
+        return this.day == other.day && this.month == other.month && this.year == other.year && this.time == other.time;
+    };
     return Datetime;
 }());
 exports.Datetime = Datetime;

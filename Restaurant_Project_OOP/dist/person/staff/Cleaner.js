@@ -19,8 +19,8 @@ exports.Cleaner = void 0;
 var Staff_1 = require("./Staff");
 var Cleaner = /** @class */ (function (_super) {
     __extends(Cleaner, _super);
-    function Cleaner(name, age, gender) {
-        return _super.call(this, name, age, gender) || this;
+    function Cleaner(name, age, gender, phoneNumber) {
+        return _super.call(this, name, age, gender, phoneNumber) || this;
     }
     return Cleaner;
 }(Staff_1.Staff));

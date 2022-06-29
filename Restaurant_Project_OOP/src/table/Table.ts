@@ -22,4 +22,8 @@ export class Table {
         this.ordered = undefined;
         return "table id number "+this.tableid + " is free now";
     }
+    
+    isChairNumber(other: number){
+        return other == this.chairnumber;
+    }
 }

@@ -1,14 +1,11 @@
 import { Gender } from "../Gender";
 import { Person } from "../Person";
-import { StaffCategory } from "./StaffCategories";
 
 export abstract class Staff extends Person{
-    isEqual(staffCategory: StaffCategory) {
-        throw new Error("Method not implemented.");
-    }
+    
     private salary: number = 0;
-    constructor( name: string, age: number, gender:Gender){
-        super (name, age, gender);
+    constructor( name: string, age: number, gender:Gender,phoneNumber:number){
+        super (name, age, gender,phoneNumber);
     }
 
 
@@ -19,5 +16,9 @@ export abstract class Staff extends Person{
 
     getSalary(){
         return this.salary;
+    }
+
+    isEqual(staff:Staff):boolean{
+        return this.name === staff.name && this.age === staff.age && this.gender === this.gender && this.phoneNumber === this.phoneNumber;
     }
 }

@@ -13,11 +13,11 @@ var PersonManagement = /** @class */ (function () {
     PersonManagement.prototype.getAllStaff = function () {
         return this.staffs;
     };
-    PersonManagement.prototype.getOnlyStaffCategory = function (staffCategory) {
+    PersonManagement.prototype.getsaff = function (staff) {
         var customers = [];
         var AllCutomers = this.getAllStaff();
         AllCutomers.forEach(function (customer) {
-            if (customer.isEqual(staffCategory)) {
+            if (customer.isEqual(staff)) {
                 customers.push(customer);
             }
         });
@@ -26,8 +26,14 @@ var PersonManagement = /** @class */ (function () {
     PersonManagement.prototype.addInsideCustomer = function (customer) {
         this.insideCustomers.push(customer);
     };
+    PersonManagement.prototype.getAllInsideCustomer = function () {
+        return this.insideCustomers;
+    };
     PersonManagement.prototype.addOutsideCustomer = function (customer) {
         this.outsideCustomer.push(customer);
+    };
+    PersonManagement.prototype.getAllOutsideCustomer = function () {
+        return this.outsideCustomer;
     };
     return PersonManagement;
 }());

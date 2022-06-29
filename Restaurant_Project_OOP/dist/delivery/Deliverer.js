@@ -15,28 +15,25 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 exports.__esModule = true;
-exports.InsideCustomer = exports.OutsideCustomer = void 0;
-var Person_1 = require("../Person");
-var OutsideCustomer = /** @class */ (function (_super) {
-    __extends(OutsideCustomer, _super);
-    function OutsideCustomer(name, age, gender, phoneNumber, location) {
+exports.Deliverer = exports.Vehicle = void 0;
+var Person_1 = require("../person/Person");
+var Vehicle;
+(function (Vehicle) {
+    Vehicle[Vehicle["CAR"] = 0] = "CAR";
+    Vehicle[Vehicle["MOTORCYCLE"] = 1] = "MOTORCYCLE";
+    Vehicle[Vehicle["BIKE"] = 2] = "BIKE";
+    Vehicle[Vehicle["TOKTOK"] = 3] = "TOKTOK";
+})(Vehicle = exports.Vehicle || (exports.Vehicle = {}));
+var Deliverer = /** @class */ (function (_super) {
+    __extends(Deliverer, _super);
+    function Deliverer(name, age, gender, phoneNumber, vehicle) {
         var _this = _super.call(this, name, age, gender, phoneNumber) || this;
-        _this.location = location;
+        _this.vehicle = vehicle;
         return _this;
     }
-    OutsideCustomer.prototype.getCustomerLocation = function () {
-        return this.location;
+    Deliverer.prototype.isEqual = function (other) {
+        return this.vehicle == other;
     };
-    OutsideCustomer.prototype.isEqual = function (other) {
-        return this.name == other.name && this.age == other.age && this.gender == other.gender && this.phoneNumber == other.phoneNumber && this.location == other.location;
-    };
-    return OutsideCustomer;
+    return Deliverer;
 }(Person_1.Person));
-exports.OutsideCustomer = OutsideCustomer;
-var InsideCustomer = /** @class */ (function () {
-    function InsideCustomer(cusomerID) {
-        this.cusomerID = cusomerID;
-    }
-    return InsideCustomer;
-}());
-exports.InsideCustomer = InsideCustomer;
+exports.Deliverer = Deliverer;

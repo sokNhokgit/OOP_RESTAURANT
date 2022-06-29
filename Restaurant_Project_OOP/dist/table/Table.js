@@ -22,6 +22,9 @@ var Table = /** @class */ (function () {
         this.ordered = undefined;
         return "table id number " + this.tableid + " is free now";
     };
+    Table.prototype.isChairNumber = function (other) {
+        return other == this.chairnumber;
+    };
     return Table;
 }());
 exports.Table = Table;
