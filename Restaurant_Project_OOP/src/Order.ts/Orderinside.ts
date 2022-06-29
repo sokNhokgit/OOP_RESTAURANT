@@ -1,7 +1,7 @@
 import { Order } from "./Order";
 import { InsideCustomer } from "../person/customer/Customer";
 import { Food } from "../kitchen/Food";
-import { Datetime } from "../date/Datetime";
+import { Waiter } from "../person/staff/Waiter";
 
 
 export class Insideorder extends Order{
@@ -9,9 +9,13 @@ export class Insideorder extends Order{
         id:number,
         foododer:Food,
         numberofdishes:number,
+        private waiter:Waiter,
         private customer:InsideCustomer
         ){
             super(id,foododer,numberofdishes)
         }
 
+        getWaiter():Waiter{
+            return this.waiter;
+        }
 }

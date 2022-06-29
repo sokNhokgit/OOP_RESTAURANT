@@ -1,6 +1,7 @@
 import { Datetime } from "../date/Datetime";
 import { Food } from "../kitchen/Food";
 import { OutsideCustomer } from "../person/customer/Customer";
+import { Waiter } from "../person/staff/Waiter";
 import { Order } from "./Order";
 
 export class Outsideorder extends Order{

@@ -5,7 +5,6 @@ var PersonManagement_1 = require("./person/PersonManagement");
 var Chef_1 = require("./person/staff/Chef");
 var Cleaner_1 = require("./person/staff/Cleaner");
 var Security_1 = require("./person/staff/Security");
-var StaffCategories_1 = require("./person/staff/StaffCategories");
 var Waiter_1 = require("./person/staff/Waiter");
 var Food_1 = require("./kitchen/Food");
 var kitchenManagement_1 = require("./kitchen/kitchenManagement");
@@ -37,18 +36,15 @@ var restraurant = new Restraurant_1.Restraurant('restraurant', location1);
 /**
  * create staff
  */
-var apple = new Chef_1.Chef('Apple', 29, Gender_1.Gender.MALE, StaffCategories_1.StaffCategory.CHIEF);
-var banana = new Waiter_1.Waiter('Banana', 35, Gender_1.Gender.FEMALE, StaffCategories_1.StaffCategory.WAITER);
-var coconut = new Security_1.Security('Coconut', 32, Gender_1.Gender.MALE, StaffCategories_1.StaffCategory.SECURITY);
-var DragonFruit = new Cleaner_1.Cleaner('DragonFruit', 40, Gender_1.Gender.FEMALE, StaffCategories_1.StaffCategory.CLEANER);
+var apple = new Chef_1.Chef('Apple', 29, Gender_1.Gender.MALE);
+var banana = new Waiter_1.Waiter('Banana', 35, Gender_1.Gender.FEMALE);
+var waiter2 = new Waiter_1.Waiter('waiter2', 23, Gender_1.Gender.FEMALE);
+var coconut = new Security_1.Security('Coconut', 32, Gender_1.Gender.MALE);
+var DragonFruit = new Cleaner_1.Cleaner('DragonFruit', 40, Gender_1.Gender.FEMALE);
 /**
  * create date time
  */
 var date1 = new Datetime_1.Datetime(12, 11, 2022, 4);
-var date2 = new Datetime_1.Datetime(25, 11, 2022, 2);
-var date3 = new Datetime_1.Datetime(11, 11, 2022, 9);
-var date4 = new Datetime_1.Datetime(15, 11, 2022, 7);
-var date5 = new Datetime_1.Datetime(8, 11, 2022, 8);
 /**
  * add staff to staff list
  */
@@ -104,10 +100,10 @@ var table4 = new Table_1.Table(4, 2, Tablestatus_1.Tablestatus.NEW);
 /**
  * order inside
  */
-var insideorder1 = new Orderinside_1.Insideorder(1, korko, 1, nika);
-var insideorder2 = new Orderinside_1.Insideorder(2, greenTea, 1, chorkev);
-var insideorder3 = new Orderinside_1.Insideorder(3, proher, 1, lin);
-var insideorder4 = new Orderinside_1.Insideorder(4, loklak, 1, seavheng);
+var insideorder1 = new Orderinside_1.Insideorder(1, korko, 1, banana, nika);
+var insideorder2 = new Orderinside_1.Insideorder(2, greenTea, 1, banana, chorkev);
+var insideorder3 = new Orderinside_1.Insideorder(3, proher, 1, banana, lin);
+var insideorder4 = new Orderinside_1.Insideorder(4, loklak, 1, banana, seavheng);
 /**
  * add inside order to the table and add table into table management
  */
@@ -123,8 +119,8 @@ tablemanagement.addTable(table4);
  * order outside
  */
 var outsideorder1 = new Orderoutside_1.Outsideorder(1, cocacola, 1, date1, romdual);
-var outsideorder2 = new Orderoutside_1.Outsideorder(2, korko, 2, date2, shika);
-var outsideorder3 = new Orderoutside_1.Outsideorder(3, loklak, 1, date3, nora);
+var outsideorder2 = new Orderoutside_1.Outsideorder(2, korko, 2, date1, shika);
+var outsideorder3 = new Orderoutside_1.Outsideorder(3, loklak, 1, date1, nora);
 /**
  * create payment and payment management
  */
@@ -160,4 +156,4 @@ orderManagement.addOrderinside(insideorder4);
 orderManagement.addOrderoutside(outsideorder1);
 orderManagement.addOrderoutside(outsideorder2);
 orderManagement.addOrderoutside(outsideorder3);
-console.log(paymentmanagement.isOrdergetPaid(outsideorder1));
+console.log(restraurant);

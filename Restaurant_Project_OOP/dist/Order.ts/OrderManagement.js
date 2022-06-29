@@ -18,6 +18,20 @@ var OrderManagement = /** @class */ (function () {
     OrderManagement.prototype.addOrderoutside = function (order) {
         this.listoutside.push(order);
     };
+    OrderManagement.prototype.getWaiterresponselist = function (waiter) {
+        var orderInlist = this.listinside;
+        var orders = [];
+        for (var i = 0; i < orderInlist.length; i++) {
+            if (orderInlist[i].getWaiter().isWaiter(waiter)) {
+                orders.push(orderInlist[i]);
+            }
+        }
+        return orders;
+    };
+    OrderManagement.prototype.getWaiterresponse = function (waiter) {
+        var allwaiterresponse = this.getWaiterresponselist(waiter);
+        return allwaiterresponse.length;
+    };
     return OrderManagement;
 }());
 exports.OrderManagement = OrderManagement;

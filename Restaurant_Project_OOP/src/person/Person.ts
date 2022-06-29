@@ -1,14 +1,24 @@
 import { Gender } from "./Gender";
 
 export abstract class Person {
-    private people: Person[] = [];
+
     constructor(
         private name:string, 
         private age:number, 
         private gender: Gender,
     ) {}
 
-    addPerson(person: Person){
-        this.people.push(person);
+
+
+    getName():string{
+        return this.name;
+    }
+
+    getAge():number{
+        return this.age;
+    }
+
+    getGender():Gender{
+        return this.gender;
     }
 }

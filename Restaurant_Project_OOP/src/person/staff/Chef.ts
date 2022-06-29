@@ -12,8 +12,8 @@ export enum FoodArea{
 export class Chef extends Staff{
     private foodArea?:FoodArea;
 
-    constructor(name: string, age: number, gender: Gender, staffCategory: StaffCategory){
-        super(staffCategory, name, age, gender);
+    constructor(name: string, age: number, gender: Gender){
+        super( name, age, gender);
     }
     setFoodArea(foodArea: FoodArea){
         this.foodArea = foodArea;

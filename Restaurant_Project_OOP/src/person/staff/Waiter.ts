@@ -4,7 +4,12 @@ import { StaffCategory } from "./StaffCategories";
 
 export class Waiter extends Staff{
 
-    constructor(name: string, age: number, gender: Gender, staffCategory: StaffCategory){
-        super(staffCategory, name, age, gender);
+    constructor(name: string, age: number, gender: Gender){
+        super(name, age, gender);
+    }
+
+   
+    isWaiter(waiter:Waiter):boolean{
+        return this.getName() === waiter.getName() && this.getAge() === waiter.getAge() && this.getGender() === waiter.getGender();
     }
 }

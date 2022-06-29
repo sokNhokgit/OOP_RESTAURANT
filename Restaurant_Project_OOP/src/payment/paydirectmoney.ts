@@ -5,9 +5,4 @@ export class Paydirectmoney extends Pay{
         super(amount,ordered)
     }
 
-    pay(amount:number,order:Order){
-        if (order.getfoodOrder().getPrice()===amount){
-            
-        }
-    }
 }

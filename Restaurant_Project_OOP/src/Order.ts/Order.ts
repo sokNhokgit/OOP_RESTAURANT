@@ -2,6 +2,7 @@ import { Datetime } from "../date/Datetime";
 import { Food } from "../kitchen/Food";
 import { Paybybankaccount } from "../payment/paybybankaccount";
 import { Paydirectmoney } from "../payment/paydirectmoney";
+import { Waiter } from "../person/staff/Waiter";
 export class Order {
     constructor(
         private id:number,

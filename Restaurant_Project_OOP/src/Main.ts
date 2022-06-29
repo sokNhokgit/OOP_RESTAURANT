@@ -36,19 +36,17 @@ let restraurant = new Restraurant('restraurant', location1);
 /**
  * create staff
  */
-let apple = new Chef('Apple', 29, Gender.MALE, StaffCategory.CHIEF);
-let banana = new Waiter('Banana', 35, Gender.FEMALE, StaffCategory.WAITER);
-let coconut = new Security('Coconut', 32, Gender.MALE, StaffCategory.SECURITY);
-let DragonFruit = new Cleaner('DragonFruit', 40, Gender.FEMALE, StaffCategory.CLEANER);
+let apple = new Chef('Apple', 29, Gender.MALE);
+let banana = new Waiter('Banana', 35, Gender.FEMALE);
+let waiter2 = new Waiter('waiter2',23,Gender.FEMALE);
+let coconut = new Security('Coconut', 32, Gender.MALE);
+let DragonFruit = new Cleaner('DragonFruit', 40, Gender.FEMALE);
 
 /**
  * create date time
  */
 let date1 = new Datetime(12,11,2022,4);
-let date2 = new Datetime(25,11,2022,2);
-let date3 = new Datetime(11,11,2022,9);
-let date4 = new Datetime(15,11,2022,7);
-let date5 = new Datetime(8,11,2022,8);
+
 
 /**
  * add staff to staff list
@@ -114,10 +112,10 @@ let table4 = new Table(4,2,Tablestatus.NEW);
 /**
  * order inside
  */
-let insideorder1 = new Insideorder(1,korko,1,nika);
-let insideorder2 = new Insideorder(2,greenTea,1,chorkev);
-let insideorder3 = new Insideorder(3,proher,1,lin);
-let insideorder4 = new Insideorder(4,loklak,1,seavheng);
+let insideorder1 = new Insideorder(1,korko,1,banana,nika);
+let insideorder2 = new Insideorder(2,greenTea,1,banana,chorkev);
+let insideorder3 = new Insideorder(3,proher,1,banana,lin);
+let insideorder4 = new Insideorder(4,loklak,1,banana,seavheng);
 
 /**
  * add inside order to the table and add table into table management
@@ -136,8 +134,8 @@ tablemanagement.addTable(table4);
  * order outside
  */
 let outsideorder1 = new Outsideorder(1,cocacola,1,date1,romdual);
-let outsideorder2 = new Outsideorder(2,korko,2,date2,shika);
-let outsideorder3 = new Outsideorder(3,loklak,1,date3,nora);
+let outsideorder2 = new Outsideorder(2,korko,2,date1,shika);
+let outsideorder3 = new Outsideorder(3,loklak,1,date1,nora);
 /**
  * create payment and payment management
  */
@@ -176,5 +174,6 @@ orderManagement.addOrderoutside(outsideorder1);
 orderManagement.addOrderoutside(outsideorder2);
 orderManagement.addOrderoutside(outsideorder3);
 
-console.log(paymentmanagement.isOrdergetPaid(outsideorder1));
+
+console.log(restraurant);
                                                    
