@@ -14,7 +14,11 @@ export class Deliverer extends Person{
         super(name, age, gender, phoneNumber);
     }
 
-    isEqual(other: Vehicle){
+    isEqualVehicle(other: Vehicle){
         return this.vehicle == other;
+    }
+
+    isEqualDeliverer(other: Deliverer){
+        return this.name==other.name && this.age==other.age && this.gender==other.gender && this.phoneNumber==other.phoneNumber;
     }
 }
