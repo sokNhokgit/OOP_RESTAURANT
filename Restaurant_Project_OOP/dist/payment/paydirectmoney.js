@@ -15,16 +15,17 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 exports.__esModule = true;
-exports.Outsideorder = void 0;
-var Order_1 = require("./Order");
-var Outsideorder = /** @class */ (function (_super) {
-    __extends(Outsideorder, _super);
-    function Outsideorder(id, foodorder, numberofdishes, date, customer) {
-        var _this = _super.call(this, id, foodorder, numberofdishes) || this;
-        _this.date = date;
-        _this.customer = customer;
-        return _this;
+exports.Paydirectmoney = void 0;
+var pay_1 = require("./pay");
+var Paydirectmoney = /** @class */ (function (_super) {
+    __extends(Paydirectmoney, _super);
+    function Paydirectmoney(amount, ordered) {
+        return _super.call(this, amount, ordered) || this;
     }
-    return Outsideorder;
-}(Order_1.Order));
-exports.Outsideorder = Outsideorder;
+    Paydirectmoney.prototype.pay = function (amount, order) {
+        if (order.getfoodOrder().getPrice() === amount) {
+        }
+    };
+    return Paydirectmoney;
+}(pay_1.Pay));
+exports.Paydirectmoney = Paydirectmoney;

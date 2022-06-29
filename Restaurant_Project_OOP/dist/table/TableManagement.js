@@ -20,6 +20,19 @@ var TableManagement = /** @class */ (function () {
         }
         return undefined;
     };
+    TableManagement.prototype.getTableByChair = function (chair) {
+        var tables = this.tables;
+        var tablesFree = [];
+        for (var i = 0; i < tables.length; i++) {
+            if (tables[i].istableFree()) {
+                tablesFree.push(tables[i]);
+                if (tablesFree[i].isChairNumber(chair)) {
+                    return tablesFree[i];
+                }
+            }
+        }
+        return undefined;
+    };
     return TableManagement;
 }());
 exports.TableManagement = TableManagement;

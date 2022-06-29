@@ -7,11 +7,7 @@ var Person = /** @class */ (function () {
         this.age = age;
         this.gender = gender;
         this.phoneNumber = phoneNumber;
-        this.people = [];
     }
-    Person.prototype.addPerson = function (person) {
-        this.people.push(person);
-    };
     return Person;
 }());
 exports.Person = Person;

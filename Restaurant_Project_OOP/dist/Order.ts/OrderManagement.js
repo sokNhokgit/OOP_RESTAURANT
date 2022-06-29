@@ -5,6 +5,7 @@ var OrderManagement = /** @class */ (function () {
     function OrderManagement() {
         this.listinside = [];
         this.listoutside = [];
+        // getOrderByCustomer(customer:OutsideCustomer)
     }
     OrderManagement.prototype.getOrderinside = function () {
         return this.listinside;

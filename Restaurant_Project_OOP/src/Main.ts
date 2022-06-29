@@ -19,6 +19,12 @@ import { Table } from "./table/Table";
 import { Tablestatus } from "./table/Tablestatus";
 import { TableManagement } from "./table/TableManagement";
 import { CustomerManagement } from "./person/customer/CustomerManagement";
+import { Datetime } from "./date/Datetime";
+import { Paybybankaccount } from "./payment/paybybankaccount";
+import { Paydirectmoney } from "./payment/paydirectmoney";
+import { PaymentManagement } from "./payment/paymentManagement";
+import { Booking } from "./Booking/Booking";
+import { BookingManagement } from "./Booking/BookingManagement";
 
 /**
  * create location
@@ -49,11 +55,11 @@ let bobo = new Waiter('Bobo', 25, Gender.FEMALE, 214365879, StaffCategory.WAITER
 /**
  * add staff to staff list
  */
-let personManagement = new PersonManagement();
-personManagement.addStaff(apple);
-personManagement.addStaff(banana);
-personManagement.addStaff(coconut);
-personManagement.addStaff(DragonFruit);
+// let personManagement = new PersonManagement();
+KakoRestraurant.personmanagement.addStaff(apple);
+KakoRestraurant.personmanagement.addStaff(banana);
+KakoRestraurant.personmanagement.addStaff(coconut);
+KakoRestraurant.personmanagement.addStaff(DragonFruit);
 
 
 /**
@@ -74,31 +80,20 @@ let seavheng = new InsideCustomer(4);
 /**
  * add customer to the list
  */
-personManagement.addOutsideCustomer(romdual);
-personManagement.addOutsideCustomer(shika);
-personManagement.addOutsideCustomer(nora);
+KakoRestraurant.personmanagement.addOutsideCustomer(romdual);
+KakoRestraurant.personmanagement.addOutsideCustomer(shika);
+KakoRestraurant.personmanagement.addOutsideCustomer(nora);
 
-personManagement.addInsideCustomer(nika);
-personManagement.addInsideCustomer(chorkev);
-personManagement.addInsideCustomer(lin);
-personManagement.addInsideCustomer(seavheng);
-
-/**
- * create food management
- */
-let foodManagement = new KitchenManagement();
-
-/**
- * create order management
- */
-let orderManagement = new OrderManagement();
+KakoRestraurant.personmanagement.addInsideCustomer(nika);
+KakoRestraurant.personmanagement.addInsideCustomer(chorkev);
+KakoRestraurant.personmanagement.addInsideCustomer(lin);
+KakoRestraurant.personmanagement.addInsideCustomer(seavheng);
 
 // Menu foods
 let soupMenu = new FoodMenu(FoodCategory.SOUP);
 let drinkMenu = new FoodMenu(FoodCategory.DRINK);
 let meatMenu = new FoodMenu(FoodCategory.MEAT);
 let desertMenu = new FoodMenu(FoodCategory.DESERT);
-
 
 /**
  * create food item
@@ -114,7 +109,6 @@ let bonamSiem = new Food(7,"bongAmSiem",1);
 /**
  *create table  and table management
  */
-let tablemanagement = new TableManagement();
 let table1 = new Table(1,2,Tablestatus.NEW);
 let table2 = new Table(2,2,Tablestatus.NEW);
 let table3 = new Table(3,2,Tablestatus.NEW);
@@ -131,23 +125,41 @@ let insideorder4 = new Insideorder(4,loklak,1,seavheng);
 /**
  * add inside order to the table and add table into table management
  */
-table1.setOrder(insideorder1);
-table2.setOrder(insideorder2);
+// table1.setOrder(insideorder1);
+// table2.setOrder(insideorder2);
 table3.setOrder(insideorder3);
 table4.setOrder(insideorder4);
 
-tablemanagement.addTable(table1);
-tablemanagement.addTable(table2);
-tablemanagement.addTable(table3);
-tablemanagement.addTable(table4);
+KakoRestraurant.tablemanagement.addTable(table1);
+KakoRestraurant.tablemanagement.addTable(table2);
+KakoRestraurant.tablemanagement.addTable(table3);
+KakoRestraurant.tablemanagement.addTable(table4);
+
+
+/**
+ * create date time
+ */
+let date1 = new Datetime(12,11,2022,4);
+let date2 = new Datetime(25,11,2022,2);
+let date3 = new Datetime(11,11,2022,9);
+let date4 = new Datetime(15,11,2022,7);
+let date5 = new Datetime(8,11,2022,8);
 
 /***
  * order outside
  */
-let outsideorder1 = new Outsideorder(1,cocacola,1,romdual);
-let outsideorder2 = new Outsideorder(2,korko,2,shika);
-let outsideorder3 = new Outsideorder(3,loklak,1,nora);
+let outsideorder1 = new Outsideorder(1,cocacola,1,date1,romdual);
+let outsideorder2 = new Outsideorder(2,korko,2,date2,shika);
+let outsideorder3 = new Outsideorder(3,loklak,1,date3,nora);
 
+/**
+ * create payment and payment management
+ */
+let paymentmanagement = new PaymentManagement();
+let pay1 = new Paydirectmoney(5,insideorder1);
+let pay2 = new Paybybankaccount("200 090 333",5,outsideorder1);
+paymentmanagement.addPay(pay1);
+paymentmanagement.addPay(pay2);
 /**
  * create food menu by it category
  */
@@ -162,35 +174,64 @@ desertMenu.addFood(bonamSiem);
 /**
  * add food menu into food management
  */
-foodManagement.addFoodmenu(soupMenu);
-foodManagement.addFoodmenu(drinkMenu);
-foodManagement.addFoodmenu(meatMenu);
-foodManagement.addFoodmenu(desertMenu);
+KakoRestraurant.kitchenmanagement.addFoodmenu(soupMenu);
+KakoRestraurant.kitchenmanagement.addFoodmenu(drinkMenu);
+KakoRestraurant.kitchenmanagement.addFoodmenu(meatMenu);
+KakoRestraurant.kitchenmanagement.addFoodmenu(desertMenu);
 
 /**
  * add order list inside and outside into order management
  */
-orderManagement.addOrderinside(insideorder1);
-orderManagement.addOrderinside(insideorder2);
-orderManagement.addOrderinside(insideorder3);
-orderManagement.addOrderinside(insideorder4);
-orderManagement.addOrderoutside(outsideorder1);
-orderManagement.addOrderoutside(outsideorder2);
-orderManagement.addOrderoutside(outsideorder3);
+KakoRestraurant.ordersmanagement.addOrderinside(insideorder1);
+KakoRestraurant.ordersmanagement.addOrderinside(insideorder2);
+KakoRestraurant.ordersmanagement.addOrderinside(insideorder3);
+KakoRestraurant.ordersmanagement.addOrderinside(insideorder4);
+KakoRestraurant.ordersmanagement.addOrderoutside(outsideorder1);
+KakoRestraurant.ordersmanagement.addOrderoutside(outsideorder2);
+KakoRestraurant.ordersmanagement.addOrderoutside(outsideorder3);
 
-// console.log(foodManagement.getFoodmenuwithCategory(FoodCategory.DRINK));
-// console.log(foodManagement.getfoodMenu());
-// console.log(tablemanagement.tablefree());
-// console.log(tablemanagement.getTable());
-console.log(personManagement.getAllStaff());
-// console.log(personManagement.getAllStaffBySalary(0));
-// console.log(personManagement.getOnlyStaffCategory(StaffCategory.CHIEF));
-console.log(personManagement.getAllInsideCustomer());
-console.log(personManagement.getAllOutsideCustomer());
+/**
+ * get booking from out side
+ */
+let booking1 = new Booking(2, 10, romdual, date1, date2);
+let booking2 = new Booking(1, 2, shika, date1, date2);
+let booking3 = new Booking(1, 2, shika, date1, date2);
+let booking4 = new Booking(1, 2, nora, date3, date4);
+
+/**
+ * add booking to booking Management
+ */
+let bookingManagement = new BookingManagement();
+bookingManagement.addBooking(booking1);
+bookingManagement.addBooking(booking2);
+bookingManagement.addBooking(booking3);
+bookingManagement.addBooking(booking4);
+
+console.log(KakoRestraurant.kitchenmanagement.getFoodmenuwithCategory(FoodCategory.DRINK));
+console.log('================= get food menu ==================');
+console.log(KakoRestraurant.kitchenmanagement.getfoodMenu());
+console.log('================= get table free ==================');
+console.log(KakoRestraurant.tablemanagement.tablefree());
+console.log('================= get all table ==================');
+console.log(KakoRestraurant.tablemanagement.getTable());
+console.log('================= get all staff ==================');
+console.log(KakoRestraurant.personmanagement.getAllStaff());
+console.log('================= get all staff by salary ==================');
+console.log(KakoRestraurant.personmanagement.getAllStaffBySalary(0));
+console.log('================= get all staff by category ==================');
+console.log(KakoRestraurant.personmanagement.getOnlyStaffCategory(StaffCategory.CHIEF));
+console.log('================= get all inside customer ==================');
+console.log(KakoRestraurant.personmanagement.getAllInsideCustomer());
+console.log('================= get all outside customer ==================');
+console.log(KakoRestraurant.personmanagement.getAllOutsideCustomer());
+console.log('================= get table by the number of chair ==================');
+console.log(KakoRestraurant.tablemanagement.getTableByChair(2));
+console.log('================= check if user get pay ================');
+console.log(paymentmanagement.isOrdergetPaid(outsideorder1));   
+console.log('================= get all booking ===================');
+console.log(bookingManagement.getAllBooking());
+console.log('================= get outside order =================');
+console.log(KakoRestraurant.ordersmanagement.getOrderoutside());
 
 
-
-
-
-
-                                                   
+                                            

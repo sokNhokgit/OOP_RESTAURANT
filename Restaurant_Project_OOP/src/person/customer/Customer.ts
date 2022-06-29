@@ -12,6 +12,10 @@ export class OutsideCustomer extends Person{
     getCustomerLocation(){
         return this.location;
     }
+
+    isEqual(other:OutsideCustomer){
+        return this.name==other.name && this.age==other.age && this.gender==other.gender && this.phoneNumber==other.phoneNumber && this.location==other.location;
+    }
 }
 
 
