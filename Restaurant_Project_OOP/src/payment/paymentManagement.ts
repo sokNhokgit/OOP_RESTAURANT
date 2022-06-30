@@ -16,10 +16,12 @@ export class PaymentManagement {
         let orderisPaid = false;
         let pays= this.pays;
         for (let i=0;i<pays.length;i++){
-            if (pays[i].getOrder().equalOrder(order)){
+            if (pays[i].getOrder().isEqual(order)){
                 orderisPaid = true;
             }
         }
         return orderisPaid;
     }
+
+
 }

@@ -19,12 +19,27 @@ exports.Outsideorder = void 0;
 var Order_1 = require("./Order");
 var Outsideorder = /** @class */ (function (_super) {
     __extends(Outsideorder, _super);
-    function Outsideorder(id, foodorder, numberofdishes, date, customer) {
-        var _this = _super.call(this, id, foodorder, numberofdishes) || this;
+    function Outsideorder(id, category, date, customer) {
+        var _this = _super.call(this, id, category) || this;
         _this.date = date;
         _this.customer = customer;
+        _this.foodorder = [];
         return _this;
     }
+    Outsideorder.prototype.addFood = function (food) {
+        this.foodorder.push(food);
+    };
+    Outsideorder.prototype.gedFoods = function () {
+        return this.foodorder;
+    };
+    Outsideorder.prototype.orderTotalPrice = function () {
+        var totalprice = 0;
+        var foods = this.foodorder;
+        for (var i = 0; i < foods.length; i++) {
+            totalprice += foods[i].getPrice();
+        }
+        return totalprice;
+    };
     return Outsideorder;
 }(Order_1.Order));
 exports.Outsideorder = Outsideorder;

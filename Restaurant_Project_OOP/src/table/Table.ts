@@ -23,7 +23,4 @@ export class Table {
         return "table id number "+this.tableid + " is free now";
     }
     
-    isChairNumber(other: number){
-        return other == this.chairnumber;
-    }
 }

@@ -10,7 +10,7 @@ export class TableManagement {
         this.tables.push(table);
     }
 
-    tablefree():Table | undefined{
+    findfreeTable():Table | undefined{
         let tables = this.tables;
         for (let i=0;i<tables.length;i++){
             if (tables[i].istableFree()){
@@ -20,17 +20,5 @@ export class TableManagement {
         return undefined;
     }
 
-    getTableByChair(chair: number){
-        let tables = this.tables;
-        let tablesFree = [];
-        for (let i=0;i<tables.length;i++){
-            if (tables[i].istableFree()){
-                tablesFree.push(tables[i]);
-                if(tablesFree[i].isChairNumber(chair)){
-                    return tablesFree[i];
-                }
-            }
-        }
-        return undefined;        
-    }
+  
 }

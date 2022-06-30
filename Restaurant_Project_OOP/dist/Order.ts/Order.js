@@ -2,27 +2,18 @@
 exports.__esModule = true;
 exports.Order = void 0;
 var Order = /** @class */ (function () {
-    function Order(id, foodorder, numberofdishes) {
+    function Order(id, category) {
         this.id = id;
-        this.foodorder = foodorder;
-        this.numberofdishes = numberofdishes;
+        this.category = category;
     }
-    Order.prototype.getfoodOrder = function () {
-        return this.foodorder;
+    Order.prototype.getCategory = function () {
+        return this.category;
     };
-    Order.prototype.getid = function () {
+    Order.prototype.getId = function () {
         return this.id;
     };
-    Order.prototype.getFood = function () {
-        return this.foodorder;
-    };
-    Order.prototype.getNumberofdishes = function () {
-        return this.numberofdishes;
-    };
-    Order.prototype.equalOrder = function (order) {
-        return this.id === order.getid() &&
-            this.numberofdishes === order.numberofdishes &&
-            this.foodorder.equalFood(order.getfoodOrder());
+    Order.prototype.isEqual = function (order) {
+        return this.id === order.id && this.category === order.category;
     };
     return Order;
 }());

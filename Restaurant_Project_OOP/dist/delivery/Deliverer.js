@@ -31,8 +31,11 @@ var Deliverer = /** @class */ (function (_super) {
         _this.vehicle = vehicle;
         return _this;
     }
-    Deliverer.prototype.isEqual = function (other) {
+    Deliverer.prototype.isEqualVehicle = function (other) {
         return this.vehicle == other;
+    };
+    Deliverer.prototype.isEqualDeliverer = function (other) {
+        return this.name == other.name && this.age == other.age && this.gender == other.gender && this.phoneNumber == other.phoneNumber;
     };
     return Deliverer;
 }(Person_1.Person));

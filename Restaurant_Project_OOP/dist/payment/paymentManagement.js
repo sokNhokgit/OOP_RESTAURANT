@@ -15,11 +15,18 @@ var PaymentManagement = /** @class */ (function () {
         var orderisPaid = false;
         var pays = this.pays;
         for (var i = 0; i < pays.length; i++) {
-            if (pays[i].getOrder().equalOrder(order)) {
+            if (pays[i].getOrder().isEqual(order)) {
                 orderisPaid = true;
             }
         }
         return orderisPaid;
+    };
+    PaymentManagement.prototype.getRevenue = function () {
+        var totalprice = 0;
+        var pays = this.pays;
+        for (var i = 0; i < pays.length; i++) {
+            console.log(pays[i]);
+        }
     };
     return PaymentManagement;
 }());

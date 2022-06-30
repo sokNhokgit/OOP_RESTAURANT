@@ -1,32 +1,35 @@
-import { Outsideorder } from "./Orderoutside";
 import { Insideorder } from "./Orderinside";
 import { Waiter } from "../person/staff/Waiter";
+import { Order } from "./Order";
+import { OrderCategory } from "./Ordercategory";
 export class OrderManagement {
-    private listinside:Insideorder[]=[];
-    private listoutside:Outsideorder[]=[];
+    private orders:Order[]=[];
 
-    getOrderinside():Insideorder[]{
-        return this.listinside;
+    getOrder():Order[]{
+        return this.orders;
     }
 
-    addOrderinside(order:Insideorder){
-        this.listinside.push(order);
+    addOrder(order:Order){
+        this.orders.push(order);
     }
 
-    getOrderoutside():Outsideorder[]{
-        return this.listoutside;
+    getOnlyinsideOrder(){
+        let orders = this.orders;
+        let orderIN=[];
+        for (let i=0;i<orders.length;i++){
+            if (orders[i].getCategory()===OrderCategory.INSIDE_ORDER){
+                orderIN.push(orders[i]);
+            }
+        }
+        return orderIN;
     }
-
-    addOrderoutside(order:Outsideorder){
-        this.listoutside.push(order);
-    }
-
     private getWaiterresponselist(waiter:Waiter):Insideorder[]{
-        let orderInlist = this.listinside;
+        let orderInlist = this.getOnlyinsideOrder();
         let orders:Insideorder[]=[];
         for (let i=0;i<orderInlist.length;i++){
-            if (orderInlist[i].getWaiter().isWaiter(waiter)){
-                orders.push(orderInlist[i])
+            let order = orderInlist[i] as Insideorder;
+            if (order.getWaiter().isWaiter(waiter)){
+                orders.push(order)
             }
         }
         return orders;
@@ -35,6 +38,7 @@ export class OrderManagement {
         let allwaiterresponse = this.getWaiterresponselist(waiter);
         return allwaiterresponse.length;
     }
+
 }
 
 
