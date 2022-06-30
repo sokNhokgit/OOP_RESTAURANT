@@ -36,9 +36,9 @@ let KakoRestaurant = new Restaurant('KakoRestaurant', location1);
 /**
  * create chef
  */
-let chefBora = new Chef('Bora', 32, Gender.MALE, 123456789, StaffCategory.CHEF);
-let chefPhanna = new Chef('Phanna', 26, Gender.MALE, 987654321, StaffCategory.CHEF);
-let chefNorea = new Chef('Norea', 22, Gender.FEMALE, 999995555, StaffCategory.CHEF);
+let chefBora = new Chef('Bora', 32, Gender.MALE, 123456789);
+let chefPhanna = new Chef('Phanna', 26, Gender.MALE, 987654321);
+let chefNorea = new Chef('Norea', 22, Gender.FEMALE, 999995555);
 KakoRestaurant.personmanagement.addStaff(chefBora)
 KakoRestaurant.personmanagement.addStaff(chefPhanna)
 KakoRestaurant.personmanagement.addStaff(chefNorea);
@@ -46,9 +46,9 @@ KakoRestaurant.personmanagement.addStaff(chefNorea);
 /**
  * create waiter
  */
-let waiterReaksmey = new Waiter('Reaksmey', 19, Gender.FEMALE, 111111111, StaffCategory.WAITER);
-let waiterNita = new Waiter('Reaksmey', 23, Gender.FEMALE, 222222222, StaffCategory.WAITER);
-let waiterOusa = new Waiter('Reaksmey', 21, Gender.MALE, 333333333, StaffCategory.WAITER);
+let waiterReaksmey = new Waiter('Reaksmey', 19, Gender.FEMALE, 111111111);
+let waiterNita = new Waiter('Reaksmey', 23, Gender.FEMALE, 222222222);
+let waiterOusa = new Waiter('Reaksmey', 21, Gender.MALE, 333333333);
 KakoRestaurant.personmanagement.addStaff(waiterReaksmey)
 KakoRestaurant.personmanagement.addStaff(waiterNita)
 KakoRestaurant.personmanagement.addStaff(waiterOusa)
@@ -56,15 +56,15 @@ KakoRestaurant.personmanagement.addStaff(waiterOusa)
 /**
  * create security
  */
-let securitySothea = new Security('Sothea', 32, Gender.MALE, 4444444444, StaffCategory.SECURITY);
+let securitySothea = new Security('Sothea', 32, Gender.MALE, 4444444444);
 KakoRestaurant.personmanagement.addStaff(securitySothea)
 
 /**
  * create cleaner
  */
-let cleanerTar = new Cleaner('Tar', 52, Gender.FEMALE, 55555555555, StaffCategory.CLEANER);
-let cleanerNea = new Cleaner('Nea', 42, Gender.FEMALE, 6666666666, StaffCategory.CLEANER);
-let cleanerJa = new Cleaner('Ja', 42, Gender.FEMALE, 7777777777, StaffCategory.CLEANER);
+let cleanerTar = new Cleaner('Tar', 52, Gender.FEMALE, 55555555555);
+let cleanerNea = new Cleaner('Nea', 42, Gender.FEMALE, 6666666666);
+let cleanerJa = new Cleaner('Ja', 42, Gender.FEMALE, 7777777777);
 KakoRestaurant.personmanagement.addStaff(cleanerJa)
 KakoRestaurant.personmanagement.addStaff(cleanerNea)
 KakoRestaurant.personmanagement.addStaff(cleanerTar)
@@ -198,9 +198,9 @@ console.log(KakoRestaurant.personmanagement.getAllDeliverer());
 console.log('=============== get all table ================');
 console.log(KakoRestaurant.tablemanagement.getTable());
 console.log('=============== get table by chair ================');
-console.log(KakoRestaurant.tablemanagement.getTableByChair(4));
+console.log(KakoRestaurant.tablemanagement.getAllTableByChair(4));
 console.log('=============== get a table ================');
-console.log(KakoRestaurant.tablemanagement.tablefree());
+console.log(KakoRestaurant.tablemanagement.findfreeTable());
 console.log('=============== get food menu ================');
 console.log(KakoRestaurant.kitchenmanagement.getfoodMenu());
 console.log('=============== get food menu by category ================');
@@ -209,7 +209,5 @@ console.log('=============== get all booking ================');
 console.log(KakoRestaurant.bookingmanagement.getAllBooking());
 console.log('=============== get all booking ================');
 console.log(KakoRestaurant.bookingmanagement.getAllBookingByCustomer(outsideCustomer1));
-
-
 
 

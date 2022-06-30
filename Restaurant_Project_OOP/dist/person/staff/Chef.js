@@ -17,6 +17,7 @@ var __extends = (this && this.__extends) || (function () {
 exports.__esModule = true;
 exports.Chef = exports.FoodArea = void 0;
 var Staff_1 = require("./Staff");
+var StaffCategories_1 = require("./StaffCategories");
 var FoodArea;
 (function (FoodArea) {
     FoodArea[FoodArea["ASEA"] = 0] = "ASEA";
@@ -26,8 +27,8 @@ var FoodArea;
 })(FoodArea = exports.FoodArea || (exports.FoodArea = {}));
 var Chef = /** @class */ (function (_super) {
     __extends(Chef, _super);
-    function Chef(name, age, gender, phoneNumber, staffCategory) {
-        return _super.call(this, staffCategory, name, age, gender, phoneNumber) || this;
+    function Chef(name, age, gender, phoneNumber) {
+        return _super.call(this, name, age, gender, phoneNumber, StaffCategories_1.StaffCategory.CHEF) || this;
     }
     Chef.prototype.setFoodArea = function (foodArea) {
         this.foodArea = foodArea;

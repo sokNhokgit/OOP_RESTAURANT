@@ -8,4 +8,17 @@ export abstract class Person {
         protected phoneNumber: number,
     ) {}
 
+
+
+    getName():string{
+        return this.name;
+    }
+
+    getAge():number{
+        return this.age;
+    }
+
+    getGender():Gender{
+        return this.gender;
+    }
 }

@@ -8,27 +8,17 @@ var TableManagement = /** @class */ (function () {
     TableManagement.prototype.getTable = function () {
         return this.tables;
     };
+    TableManagement.prototype.countTable = function () {
+        return this.tables.length;
+    };
     TableManagement.prototype.addTable = function (table) {
         this.tables.push(table);
     };
-    TableManagement.prototype.tablefree = function () {
+    TableManagement.prototype.findfreeTable = function () {
         var tables = this.tables;
         for (var i = 0; i < tables.length; i++) {
             if (tables[i].istableFree()) {
                 return tables[i];
-            }
-        }
-        return undefined;
-    };
-    TableManagement.prototype.getTableByChair = function (chair) {
-        var tables = this.tables;
-        var tablesFree = [];
-        for (var i = 0; i < tables.length; i++) {
-            if (tables[i].istableFree()) {
-                tablesFree.push(tables[i]);
-                if (tablesFree[i].isChairNumber(chair)) {
-                    return tablesFree[i];
-                }
             }
         }
         return undefined;

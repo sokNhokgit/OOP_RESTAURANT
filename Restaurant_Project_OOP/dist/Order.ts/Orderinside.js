@@ -19,11 +19,30 @@ exports.Insideorder = void 0;
 var Order_1 = require("./Order");
 var Insideorder = /** @class */ (function (_super) {
     __extends(Insideorder, _super);
-    function Insideorder(id, foododer, numberofdishes, customer) {
-        var _this = _super.call(this, id, foododer, numberofdishes) || this;
+    function Insideorder(id, category, waiter, customer) {
+        var _this = _super.call(this, id, category) || this;
+        _this.waiter = waiter;
         _this.customer = customer;
+        _this.foododer = [];
         return _this;
     }
+    Insideorder.prototype.getWaiter = function () {
+        return this.waiter;
+    };
+    Insideorder.prototype.addFood = function (food) {
+        this.foododer.push(food);
+    };
+    Insideorder.prototype.gedFoods = function () {
+        return this.foododer;
+    };
+    Insideorder.prototype.orderTotalPrice = function () {
+        var totalprice = 0;
+        var foods = this.foododer;
+        for (var i = 0; i < foods.length; i++) {
+            totalprice += foods[i].getPrice();
+        }
+        return totalprice;
+    };
     return Insideorder;
 }(Order_1.Order));
 exports.Insideorder = Insideorder;

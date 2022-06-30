@@ -22,10 +22,6 @@ var Paydirectmoney = /** @class */ (function (_super) {
     function Paydirectmoney(amount, ordered) {
         return _super.call(this, amount, ordered) || this;
     }
-    Paydirectmoney.prototype.pay = function (amount, order) {
-        if (order.getfoodOrder().getPrice() === amount) {
-        }
-    };
     return Paydirectmoney;
 }(pay_1.Pay));
 exports.Paydirectmoney = Paydirectmoney;

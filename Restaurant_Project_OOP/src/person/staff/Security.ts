@@ -5,7 +5,7 @@ import { StaffCategory } from "./StaffCategories";
 
 export class Security extends Staff{
 
-    constructor(name: string, age: number, gender: Gender,phoneNumber:number, staffCategory: StaffCategory){
-        super(staffCategory, name, age, gender, phoneNumber);
+    constructor(name: string, age: number, gender: Gender,phoneNumber:number){
+        super(name, age, gender,phoneNumber, StaffCategory.SECURITY);
     }
 }

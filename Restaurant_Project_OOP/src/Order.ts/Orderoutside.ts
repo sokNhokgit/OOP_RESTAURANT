@@ -2,16 +2,32 @@ import { Datetime } from "../date/Datetime";
 import { Food } from "../kitchen/Food";
 import { OutsideCustomer } from "../person/customer/Customer";
 import { Order } from "./Order";
+import { OrderCategory } from "./Ordercategory";
 
 export class Outsideorder extends Order{
+    private foodorder:Food[]=[]
     constructor(
         id:number, 
-        foodorder:Food,
-        numberofdishes:number,
+        category:OrderCategory,
         private date:Datetime,
         private customer:OutsideCustomer,
         ){
-            super(id,foodorder,numberofdishes);
+            super(id,category);
         }
 
+       addFood(food:Food){
+            this.foodorder.push(food);
+       }
+
+       gedFoods():Food[]{
+        return this.foodorder;
+       }
+       orderTotalPrice():number {
+        let totalprice = 0;
+        let foods = this.foodorder;
+        for (let i=0;i<foods.length;i++){
+            totalprice += foods[i].getPrice();
+        }
+        return totalprice;
+    }
 }

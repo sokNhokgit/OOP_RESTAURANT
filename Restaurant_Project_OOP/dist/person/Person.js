@@ -8,6 +8,15 @@ var Person = /** @class */ (function () {
         this.gender = gender;
         this.phoneNumber = phoneNumber;
     }
+    Person.prototype.getName = function () {
+        return this.name;
+    };
+    Person.prototype.getAge = function () {
+        return this.age;
+    };
+    Person.prototype.getGender = function () {
+        return this.gender;
+    };
     return Person;
 }());
 exports.Person = Person;

@@ -1,4 +1,3 @@
-import { Contact } from "../Contact";
 import { Gender } from "../Gender";
 import { Location } from "../../Location";
 import { Person } from "../Person";

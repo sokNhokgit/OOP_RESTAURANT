@@ -1,23 +1,41 @@
 "use strict";
 exports.__esModule = true;
 exports.OrderManagement = void 0;
+var Ordercategory_1 = require("./Ordercategory");
 var OrderManagement = /** @class */ (function () {
     function OrderManagement() {
-        this.listinside = [];
-        this.listoutside = [];
-        // getOrderByCustomer(customer:OutsideCustomer)
+        this.orders = [];
     }
-    OrderManagement.prototype.getOrderinside = function () {
-        return this.listinside;
+    OrderManagement.prototype.getOrder = function () {
+        return this.orders;
     };
-    OrderManagement.prototype.addOrderinside = function (order) {
-        this.listinside.push(order);
+    OrderManagement.prototype.addOrder = function (order) {
+        this.orders.push(order);
     };
-    OrderManagement.prototype.getOrderoutside = function () {
-        return this.listoutside;
+    OrderManagement.prototype.getOnlyinsideOrder = function () {
+        var orders = this.orders;
+        var orderIN = [];
+        for (var i = 0; i < orders.length; i++) {
+            if (orders[i].getCategory() === Ordercategory_1.OrderCategory.INSIDE_ORDER) {
+                orderIN.push(orders[i]);
+            }
+        }
+        return orderIN;
     };
-    OrderManagement.prototype.addOrderoutside = function (order) {
-        this.listoutside.push(order);
+    OrderManagement.prototype.getWaiterresponselist = function (waiter) {
+        var orderInlist = this.getOnlyinsideOrder();
+        var orders = [];
+        for (var i = 0; i < orderInlist.length; i++) {
+            var order = orderInlist[i];
+            if (order.getWaiter().isWaiter(waiter)) {
+                orders.push(order);
+            }
+        }
+        return orders;
+    };
+    OrderManagement.prototype.getWaiterresponse = function (waiter) {
+        var allwaiterresponse = this.getWaiterresponselist(waiter);
+        return allwaiterresponse.length;
     };
     return OrderManagement;
 }());

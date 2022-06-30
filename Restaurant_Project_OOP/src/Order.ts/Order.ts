@@ -2,31 +2,25 @@ import { Datetime } from "../date/Datetime";
 import { Food } from "../kitchen/Food";
 import { Paybybankaccount } from "../payment/paybybankaccount";
 import { Paydirectmoney } from "../payment/paydirectmoney";
+import { Waiter } from "../person/staff/Waiter";
+import { OrderCategory } from "./Ordercategory";
 export class Order {
+
     constructor(
         private id:number,
-        private foodorder:Food,
-        private numberofdishes:number,
-        ){}
+        private category:OrderCategory,
+    ){}
 
-        getfoodOrder():Food{
-            return this.foodorder;
-        }
+    getCategory():OrderCategory{
+        return this.category;
+    }
 
-        getid():number{
-            return this.id;
-        }
-        getFood():Food{
-            return this.foodorder;
-        }
-        getNumberofdishes():number{
-            return this.numberofdishes;
-        }
+    getId():number{
+        return this.id;
+    }
 
-        equalOrder(order:Order){
-            return  this.id === order.getid() &&
-                    this.numberofdishes === order.numberofdishes &&
-                    this.foodorder.equalFood(order.getfoodOrder());
-        }
-        
+    
+    isEqual(order:Order){
+        return this.id === order.id && this.category === order.category;
+    }
 }

@@ -15,7 +15,7 @@ var PaymentManagement = /** @class */ (function () {
         var orderisPaid = false;
         var pays = this.pays;
         for (var i = 0; i < pays.length; i++) {
-            if (pays[i].getOrder().equalOrder(order)) {
+            if (pays[i].getOrder().isEqual(order)) {
                 orderisPaid = true;
             }
         }

@@ -3,14 +3,13 @@ import { Person } from "../Person";
 import { StaffCategory } from "./StaffCategories";
 
 export abstract class Staff extends Person{
+    
     private salary: number = 0;
-    constructor(private staffCategory: StaffCategory, name: string, age: number, gender:Gender, phoneNumber: number){
-        super (name, age, gender, phoneNumber);
+    constructor( name: string, age: number, gender:Gender,phoneNumber:number, category: StaffCategory){
+        super (name, age, gender,phoneNumber);
     }
 
-    isEqual(other: StaffCategory){
-        return this.staffCategory == other;
-    }
+
 
     setSalary(salary: number){
         this.salary = salary;
@@ -18,5 +17,9 @@ export abstract class Staff extends Person{
 
     getSalary(){
         return this.salary;
+    }
+
+    isEqual(staff:Staff):boolean{
+        return this.name === staff.name && this.age === staff.age && this.gender === this.gender && this.phoneNumber === this.phoneNumber;
     }
 }

@@ -12,7 +12,6 @@ var Gender_1 = require("./person/Gender");
 var Chef_1 = require("./person/staff/Chef");
 var Cleaner_1 = require("./person/staff/Cleaner");
 var Security_1 = require("./person/staff/Security");
-var StaffCategories_1 = require("./person/staff/StaffCategories");
 var Waiter_1 = require("./person/staff/Waiter");
 var Restaurant_1 = require("./Restaurant");
 var Table_1 = require("./table/Table");
@@ -33,32 +32,32 @@ var KakoRestaurant = new Restaurant_1.Restaurant('KakoRestaurant', location1);
 /**
  * create chef
  */
-var chefBora = new Chef_1.Chef('Bora', 32, Gender_1.Gender.MALE, 123456789, StaffCategories_1.StaffCategory.CHEF);
-var chefPhanna = new Chef_1.Chef('Phanna', 26, Gender_1.Gender.MALE, 987654321, StaffCategories_1.StaffCategory.CHEF);
-var chefNorea = new Chef_1.Chef('Norea', 22, Gender_1.Gender.FEMALE, 999995555, StaffCategories_1.StaffCategory.CHEF);
+var chefBora = new Chef_1.Chef('Bora', 32, Gender_1.Gender.MALE, 123456789);
+var chefPhanna = new Chef_1.Chef('Phanna', 26, Gender_1.Gender.MALE, 987654321);
+var chefNorea = new Chef_1.Chef('Norea', 22, Gender_1.Gender.FEMALE, 999995555);
 KakoRestaurant.personmanagement.addStaff(chefBora);
 KakoRestaurant.personmanagement.addStaff(chefPhanna);
 KakoRestaurant.personmanagement.addStaff(chefNorea);
 /**
  * create waiter
  */
-var waiterReaksmey = new Waiter_1.Waiter('Reaksmey', 19, Gender_1.Gender.FEMALE, 111111111, StaffCategories_1.StaffCategory.WAITER);
-var waiterNita = new Waiter_1.Waiter('Reaksmey', 23, Gender_1.Gender.FEMALE, 222222222, StaffCategories_1.StaffCategory.WAITER);
-var waiterOusa = new Waiter_1.Waiter('Reaksmey', 21, Gender_1.Gender.MALE, 333333333, StaffCategories_1.StaffCategory.WAITER);
+var waiterReaksmey = new Waiter_1.Waiter('Reaksmey', 19, Gender_1.Gender.FEMALE, 111111111);
+var waiterNita = new Waiter_1.Waiter('Reaksmey', 23, Gender_1.Gender.FEMALE, 222222222);
+var waiterOusa = new Waiter_1.Waiter('Reaksmey', 21, Gender_1.Gender.MALE, 333333333);
 KakoRestaurant.personmanagement.addStaff(waiterReaksmey);
 KakoRestaurant.personmanagement.addStaff(waiterNita);
 KakoRestaurant.personmanagement.addStaff(waiterOusa);
 /**
  * create security
  */
-var securitySothea = new Security_1.Security('Sothea', 32, Gender_1.Gender.MALE, 4444444444, StaffCategories_1.StaffCategory.SECURITY);
+var securitySothea = new Security_1.Security('Sothea', 32, Gender_1.Gender.MALE, 4444444444);
 KakoRestaurant.personmanagement.addStaff(securitySothea);
 /**
  * create cleaner
  */
-var cleanerTar = new Cleaner_1.Cleaner('Tar', 52, Gender_1.Gender.FEMALE, 55555555555, StaffCategories_1.StaffCategory.CLEANER);
-var cleanerNea = new Cleaner_1.Cleaner('Nea', 42, Gender_1.Gender.FEMALE, 6666666666, StaffCategories_1.StaffCategory.CLEANER);
-var cleanerJa = new Cleaner_1.Cleaner('Ja', 42, Gender_1.Gender.FEMALE, 7777777777, StaffCategories_1.StaffCategory.CLEANER);
+var cleanerTar = new Cleaner_1.Cleaner('Tar', 52, Gender_1.Gender.FEMALE, 55555555555);
+var cleanerNea = new Cleaner_1.Cleaner('Nea', 42, Gender_1.Gender.FEMALE, 6666666666);
+var cleanerJa = new Cleaner_1.Cleaner('Ja', 42, Gender_1.Gender.FEMALE, 7777777777);
 KakoRestaurant.personmanagement.addStaff(cleanerJa);
 KakoRestaurant.personmanagement.addStaff(cleanerNea);
 KakoRestaurant.personmanagement.addStaff(cleanerTar);
@@ -179,9 +178,9 @@ console.log(KakoRestaurant.personmanagement.getAllDeliverer());
 console.log('=============== get all table ================');
 console.log(KakoRestaurant.tablemanagement.getTable());
 console.log('=============== get table by chair ================');
-console.log(KakoRestaurant.tablemanagement.getTableByChair(4));
+// console.log(KakoRestaurant.tablemanagement.getTableByChair(4));
 console.log('=============== get a table ================');
-console.log(KakoRestaurant.tablemanagement.tablefree());
+// console.log(KakoRestaurant.tablemanagement.tablefree());
 console.log('=============== get food menu ================');
 console.log(KakoRestaurant.kitchenmanagement.getfoodMenu());
 console.log('=============== get food menu by category ================');

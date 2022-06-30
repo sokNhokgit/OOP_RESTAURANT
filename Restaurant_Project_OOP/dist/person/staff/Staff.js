@@ -19,20 +19,19 @@ exports.Staff = void 0;
 var Person_1 = require("../Person");
 var Staff = /** @class */ (function (_super) {
     __extends(Staff, _super);
-    function Staff(staffCategory, name, age, gender, phoneNumber) {
+    function Staff(name, age, gender, phoneNumber, category) {
         var _this = _super.call(this, name, age, gender, phoneNumber) || this;
-        _this.staffCategory = staffCategory;
         _this.salary = 0;
         return _this;
     }
-    Staff.prototype.isEqual = function (other) {
-        return this.staffCategory == other;
-    };
     Staff.prototype.setSalary = function (salary) {
         this.salary = salary;
     };
     Staff.prototype.getSalary = function () {
         return this.salary;
+    };
+    Staff.prototype.isEqual = function (staff) {
+        return this.name === staff.name && this.age === staff.age && this.gender === this.gender && this.phoneNumber === this.phoneNumber;
     };
     return Staff;
 }(Person_1.Person));
