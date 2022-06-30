@@ -1,6 +1,5 @@
-import { Gender } from "../person/Gender";
-import { Person } from "../person/Person";
-
+import { Gender } from "../Gender";
+import { Person } from "../Person";
 
 export enum Vehicle{
     CAR,

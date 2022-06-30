@@ -1,5 +1,5 @@
 import { OutsideCustomer } from "../person/customer/Customer";
-import { Deliverer } from "./Deliverer";
+import { Deliverer } from "../person/deliverer/Deliverer";
 import { Delivery } from "./Delivery";
 
 export class DeliveryManagement{

@@ -1,208 +1,192 @@
 "use strict";
 exports.__esModule = true;
+var Booking_1 = require("./Booking/Booking");
+var Datetime_1 = require("./date/Datetime");
+var Food_1 = require("./kitchen/Food");
+var FoodCategory_1 = require("./kitchen/FoodCategory");
+var FoodMenu_1 = require("./kitchen/FoodMenu");
+var Location_1 = require("./Location");
+var Customer_1 = require("./person/customer/Customer");
+var Deliverer_1 = require("./person/deliverer/Deliverer");
 var Gender_1 = require("./person/Gender");
 var Chef_1 = require("./person/staff/Chef");
 var Cleaner_1 = require("./person/staff/Cleaner");
 var Security_1 = require("./person/staff/Security");
 var StaffCategories_1 = require("./person/staff/StaffCategories");
 var Waiter_1 = require("./person/staff/Waiter");
-var Food_1 = require("./kitchen/Food");
-var FoodCategory_1 = require("./kitchen/FoodCategory");
-var FoodMenu_1 = require("./kitchen/FoodMenu");
-var Orderoutside_1 = require("./Order.ts/Orderoutside");
-var Orderinside_1 = require("./Order.ts/Orderinside");
-var Customer_1 = require("./person/customer/Customer");
-var Location_1 = require("./Location");
-var Restraurant_1 = require("./Restraurant");
+var Restaurant_1 = require("./Restaurant");
 var Table_1 = require("./table/Table");
 var Tablestatus_1 = require("./table/Tablestatus");
-var Datetime_1 = require("./date/Datetime");
-var paybybankaccount_1 = require("./payment/paybybankaccount");
-var paydirectmoney_1 = require("./payment/paydirectmoney");
-var paymentManagement_1 = require("./payment/paymentManagement");
-var Booking_1 = require("./Booking/Booking");
-var BookingManagement_1 = require("./Booking/BookingManagement");
 /**
  * create location
- */
-var location1 = new Location_1.Location('Norodom', 'Phnom Peng');
-var location2 = new Location_1.Location('Sisovat', 'Phnom Peng');
-var location3 = new Location_1.Location('Mean Chey', 'Phnom Peng');
-var location4 = new Location_1.Location('395', 'Siem Reap');
-var location5 = new Location_1.Location('5', 'Banteay Mean Chey');
+*/
+var location1 = new Location_1.Location('Norodom', 'Phnom Penh');
+var location2 = new Location_1.Location('2004', 'Phnom Penh');
+var location3 = new Location_1.Location('5', 'Banteay Mean Chey');
+var location4 = new Location_1.Location('6', 'Batt Dombang');
+var location5 = new Location_1.Location('251', 'Siem Reap');
 /**
- * create restraurant
+ * create restaurant
  */
-var restraurant = new Restraurant_1.Restraurant('restraurant', location1);
-var KakoRestraurant = new Restraurant_1.Restraurant('Kako Restraurant', location4);
+var KakoRestaurant = new Restaurant_1.Restaurant('KakoRestaurant', location1);
+// create staff =================================================
 /**
- * create staff
+ * create chef
  */
-var apple = new Chef_1.Chef('Apple', 29, Gender_1.Gender.MALE, 987654321, StaffCategories_1.StaffCategory.CHIEF);
-var banana = new Waiter_1.Waiter('Banana', 35, Gender_1.Gender.FEMALE, 123456789, StaffCategories_1.StaffCategory.WAITER);
-var coconut = new Security_1.Security('Coconut', 32, Gender_1.Gender.MALE, 918273645, StaffCategories_1.StaffCategory.SECURITY);
-var DragonFruit = new Cleaner_1.Cleaner('DragonFruit', 40, Gender_1.Gender.FEMALE, 123498765, StaffCategories_1.StaffCategory.CLEANER);
-var koko = new Chef_1.Chef('koko', 32, Gender_1.Gender.MALE, 987654321, StaffCategories_1.StaffCategory.CHIEF);
-var vela = new Cleaner_1.Cleaner('Vela', 43, Gender_1.Gender.FEMALE, 123456789, StaffCategories_1.StaffCategory.CLEANER);
-var kim = new Security_1.Security('Kim', 28, Gender_1.Gender.MALE, 678954321, StaffCategories_1.StaffCategory.SECURITY);
-var bobo = new Waiter_1.Waiter('Bobo', 25, Gender_1.Gender.FEMALE, 214365879, StaffCategories_1.StaffCategory.WAITER);
+var chefBora = new Chef_1.Chef('Bora', 32, Gender_1.Gender.MALE, 123456789, StaffCategories_1.StaffCategory.CHEF);
+var chefPhanna = new Chef_1.Chef('Phanna', 26, Gender_1.Gender.MALE, 987654321, StaffCategories_1.StaffCategory.CHEF);
+var chefNorea = new Chef_1.Chef('Norea', 22, Gender_1.Gender.FEMALE, 999995555, StaffCategories_1.StaffCategory.CHEF);
+KakoRestaurant.personmanagement.addStaff(chefBora);
+KakoRestaurant.personmanagement.addStaff(chefPhanna);
+KakoRestaurant.personmanagement.addStaff(chefNorea);
 /**
- * add staff to staff list
+ * create waiter
  */
-// let personManagement = new PersonManagement();
-KakoRestraurant.personmanagement.addStaff(apple);
-KakoRestraurant.personmanagement.addStaff(banana);
-KakoRestraurant.personmanagement.addStaff(coconut);
-KakoRestraurant.personmanagement.addStaff(DragonFruit);
+var waiterReaksmey = new Waiter_1.Waiter('Reaksmey', 19, Gender_1.Gender.FEMALE, 111111111, StaffCategories_1.StaffCategory.WAITER);
+var waiterNita = new Waiter_1.Waiter('Reaksmey', 23, Gender_1.Gender.FEMALE, 222222222, StaffCategories_1.StaffCategory.WAITER);
+var waiterOusa = new Waiter_1.Waiter('Reaksmey', 21, Gender_1.Gender.MALE, 333333333, StaffCategories_1.StaffCategory.WAITER);
+KakoRestaurant.personmanagement.addStaff(waiterReaksmey);
+KakoRestaurant.personmanagement.addStaff(waiterNita);
+KakoRestaurant.personmanagement.addStaff(waiterOusa);
+/**
+ * create security
+ */
+var securitySothea = new Security_1.Security('Sothea', 32, Gender_1.Gender.MALE, 4444444444, StaffCategories_1.StaffCategory.SECURITY);
+KakoRestaurant.personmanagement.addStaff(securitySothea);
+/**
+ * create cleaner
+ */
+var cleanerTar = new Cleaner_1.Cleaner('Tar', 52, Gender_1.Gender.FEMALE, 55555555555, StaffCategories_1.StaffCategory.CLEANER);
+var cleanerNea = new Cleaner_1.Cleaner('Nea', 42, Gender_1.Gender.FEMALE, 6666666666, StaffCategories_1.StaffCategory.CLEANER);
+var cleanerJa = new Cleaner_1.Cleaner('Ja', 42, Gender_1.Gender.FEMALE, 7777777777, StaffCategories_1.StaffCategory.CLEANER);
+KakoRestaurant.personmanagement.addStaff(cleanerJa);
+KakoRestaurant.personmanagement.addStaff(cleanerNea);
+KakoRestaurant.personmanagement.addStaff(cleanerTar);
+// create customer ====================================================================
+/**
+ * create inside customer
+ */
+var insideCustomer1 = new Customer_1.InsideCustomer(1);
+var insideCustomer2 = new Customer_1.InsideCustomer(2);
+var insideCustomer3 = new Customer_1.InsideCustomer(3);
+var insideCustomer4 = new Customer_1.InsideCustomer(4);
+KakoRestaurant.personmanagement.addInsideCustomer(insideCustomer1);
+KakoRestaurant.personmanagement.addInsideCustomer(insideCustomer2);
+KakoRestaurant.personmanagement.addInsideCustomer(insideCustomer3);
+KakoRestaurant.personmanagement.addInsideCustomer(insideCustomer4);
 /**
  * create outside customer
  */
-var romdual = new Customer_1.OutsideCustomer('Romdual', 25, Gender_1.Gender.FEMALE, 929394959, location1);
-var shika = new Customer_1.OutsideCustomer('Shika', 30, Gender_1.Gender.FEMALE, 839248678, location2);
-var nora = new Customer_1.OutsideCustomer('Nora', 40, Gender_1.Gender.MALE, 998943234, location3);
+var outsideCustomer1 = new Customer_1.OutsideCustomer('Yo', 25, Gender_1.Gender.MALE, 1212121212, location2);
+var outsideCustomer2 = new Customer_1.OutsideCustomer('Bo', 25, Gender_1.Gender.MALE, 123123123, location3);
+var outsideCustomer3 = new Customer_1.OutsideCustomer('Na', 25, Gender_1.Gender.FEMALE, 123412341, location2);
+var outsideCustomer4 = new Customer_1.OutsideCustomer('Ra', 25, Gender_1.Gender.FEMALE, 123451234, location3);
+KakoRestaurant.personmanagement.addOutsideCustomer(outsideCustomer1);
+KakoRestaurant.personmanagement.addOutsideCustomer(outsideCustomer2);
+KakoRestaurant.personmanagement.addOutsideCustomer(outsideCustomer3);
+KakoRestaurant.personmanagement.addOutsideCustomer(outsideCustomer4);
+// create delivery =====================================================================
 /**
- * create customer inside
+ * create delivery
  */
-var nika = new Customer_1.InsideCustomer(1);
-var chorkev = new Customer_1.InsideCustomer(2);
-var lin = new Customer_1.InsideCustomer(3);
-var seavheng = new Customer_1.InsideCustomer(4);
+var deliverer1 = new Deliverer_1.Deliverer('Mora', 28, Gender_1.Gender.MALE, 98123456789, Deliverer_1.Vehicle.MOTORCYCLE);
+var deliverer2 = new Deliverer_1.Deliverer('Nata', 28, Gender_1.Gender.MALE, 98123456789, Deliverer_1.Vehicle.MOTORCYCLE);
+var deliverer3 = new Deliverer_1.Deliverer('Mike', 28, Gender_1.Gender.MALE, 98123456789, Deliverer_1.Vehicle.MOTORCYCLE);
+var deliverer4 = new Deliverer_1.Deliverer('Mark', 28, Gender_1.Gender.MALE, 98123456789, Deliverer_1.Vehicle.MOTORCYCLE);
+KakoRestaurant.personmanagement.addDeliverer(deliverer1);
+KakoRestaurant.personmanagement.addDeliverer(deliverer2);
+KakoRestaurant.personmanagement.addDeliverer(deliverer3);
+KakoRestaurant.personmanagement.addDeliverer(deliverer4);
+// create table ========================================================================
 /**
- * add customer to the list
+ * create table
  */
-KakoRestraurant.personmanagement.addOutsideCustomer(romdual);
-KakoRestraurant.personmanagement.addOutsideCustomer(shika);
-KakoRestraurant.personmanagement.addOutsideCustomer(nora);
-KakoRestraurant.personmanagement.addInsideCustomer(nika);
-KakoRestraurant.personmanagement.addInsideCustomer(chorkev);
-KakoRestraurant.personmanagement.addInsideCustomer(lin);
-KakoRestraurant.personmanagement.addInsideCustomer(seavheng);
-// Menu foods
-var soupMenu = new FoodMenu_1.FoodMenu(FoodCategory_1.FoodCategory.SOUP);
-var drinkMenu = new FoodMenu_1.FoodMenu(FoodCategory_1.FoodCategory.DRINK);
-var meatMenu = new FoodMenu_1.FoodMenu(FoodCategory_1.FoodCategory.MEAT);
-var desertMenu = new FoodMenu_1.FoodMenu(FoodCategory_1.FoodCategory.DESERT);
+var table1 = new Table_1.Table(1, 4, Tablestatus_1.Tablestatus.NEW);
+var table2 = new Table_1.Table(2, 8, Tablestatus_1.Tablestatus.NEW);
+var table3 = new Table_1.Table(3, 5, Tablestatus_1.Tablestatus.NEW);
+var table4 = new Table_1.Table(4, 4, Tablestatus_1.Tablestatus.NEW);
+var table5 = new Table_1.Table(5, 6, Tablestatus_1.Tablestatus.NEW);
+var table6 = new Table_1.Table(6, 8, Tablestatus_1.Tablestatus.NEW);
+var table7 = new Table_1.Table(7, 10, Tablestatus_1.Tablestatus.NEW);
+var table8 = new Table_1.Table(8, 6, Tablestatus_1.Tablestatus.NEW);
+var table9 = new Table_1.Table(9, 6, Tablestatus_1.Tablestatus.NEW);
+KakoRestaurant.tablemanagement.addTable(table1);
+KakoRestaurant.tablemanagement.addTable(table2);
+KakoRestaurant.tablemanagement.addTable(table3);
+KakoRestaurant.tablemanagement.addTable(table4);
+KakoRestaurant.tablemanagement.addTable(table5);
+KakoRestaurant.tablemanagement.addTable(table6);
+KakoRestaurant.tablemanagement.addTable(table7);
+KakoRestaurant.tablemanagement.addTable(table8);
+KakoRestaurant.tablemanagement.addTable(table9);
+// create food ========================================================================
 /**
- * create food item
-*/
-var korko = new Food_1.Food(1, "Somlor kor ko", 5);
-var greenTea = new Food_1.Food(2, "Green Tea", 1);
-var loklak = new Food_1.Food(3, "loklak", 5);
-var proher = new Food_1.Food(4, "proher", 5);
-var cocacola = new Food_1.Food(5, "cocacola", 2);
-var saray = new Food_1.Food(6, "saray", 1);
-var bonamSiem = new Food_1.Food(7, "bongAmSiem", 1);
-/**
- *create table  and table management
+ * create food menu
  */
-var table1 = new Table_1.Table(1, 2, Tablestatus_1.Tablestatus.NEW);
-var table2 = new Table_1.Table(2, 2, Tablestatus_1.Tablestatus.NEW);
-var table3 = new Table_1.Table(3, 2, Tablestatus_1.Tablestatus.NEW);
-var table4 = new Table_1.Table(4, 2, Tablestatus_1.Tablestatus.NEW);
+var desert = new FoodMenu_1.FoodMenu(FoodCategory_1.FoodCategory.DESERT);
+var drink = new FoodMenu_1.FoodMenu(FoodCategory_1.FoodCategory.DRINK);
+var fish = new FoodMenu_1.FoodMenu(FoodCategory_1.FoodCategory.FISH);
+var meat = new FoodMenu_1.FoodMenu(FoodCategory_1.FoodCategory.MEAT);
+var soup = new FoodMenu_1.FoodMenu(FoodCategory_1.FoodCategory.SOUP);
+var vegetable = new FoodMenu_1.FoodMenu(FoodCategory_1.FoodCategory.VEGETABLE);
 /**
- * order inside
+ * create food
  */
-var insideorder1 = new Orderinside_1.Insideorder(1, korko, 1, nika);
-var insideorder2 = new Orderinside_1.Insideorder(2, greenTea, 1, chorkev);
-var insideorder3 = new Orderinside_1.Insideorder(3, proher, 1, lin);
-var insideorder4 = new Orderinside_1.Insideorder(4, loklak, 1, seavheng);
-/**
- * add inside order to the table and add table into table management
- */
-// table1.setOrder(insideorder1);
-// table2.setOrder(insideorder2);
-table3.setOrder(insideorder3);
-table4.setOrder(insideorder4);
-KakoRestraurant.tablemanagement.addTable(table1);
-KakoRestraurant.tablemanagement.addTable(table2);
-KakoRestraurant.tablemanagement.addTable(table3);
-KakoRestraurant.tablemanagement.addTable(table4);
+var food1 = new Food_1.Food(1, 'desert', 2);
+var food2 = new Food_1.Food(2, 'drink', 1);
+var food3 = new Food_1.Food(1, 'fish', 8);
+var food4 = new Food_1.Food(1, 'meat', 2);
+var food5 = new Food_1.Food(1, 'soup', 2);
+var food6 = new Food_1.Food(1, 'vegetable', 2);
+desert.addFood(food1);
+drink.addFood(food2);
+fish.addFood(food3);
+meat.addFood(food4);
+soup.addFood(food5);
+vegetable.addFood(food6);
+KakoRestaurant.kitchenmanagement.addFoodmenu(desert);
+KakoRestaurant.kitchenmanagement.addFoodmenu(drink);
+KakoRestaurant.kitchenmanagement.addFoodmenu(fish);
+KakoRestaurant.kitchenmanagement.addFoodmenu(meat);
+KakoRestaurant.kitchenmanagement.addFoodmenu(soup);
+KakoRestaurant.kitchenmanagement.addFoodmenu(vegetable);
+// create date time ==================================================================
 /**
  * create date time
  */
-var date1 = new Datetime_1.Datetime(12, 11, 2022, 4);
-var date2 = new Datetime_1.Datetime(25, 11, 2022, 2);
-var date3 = new Datetime_1.Datetime(11, 11, 2022, 9);
-var date4 = new Datetime_1.Datetime(15, 11, 2022, 7);
-var date5 = new Datetime_1.Datetime(8, 11, 2022, 8);
-/***
- * order outside
- */
-var outsideorder1 = new Orderoutside_1.Outsideorder(1, cocacola, 1, date1, romdual);
-var outsideorder2 = new Orderoutside_1.Outsideorder(2, korko, 2, date2, shika);
-var outsideorder3 = new Orderoutside_1.Outsideorder(3, loklak, 1, date3, nora);
+var date1 = new Datetime_1.Datetime(12, 5, 2022, 8);
+var date2 = new Datetime_1.Datetime(13, 5, 2022, 5);
+var date3 = new Datetime_1.Datetime(23, 5, 2022, 1);
+var date4 = new Datetime_1.Datetime(24, 5, 2022, 5);
+var date5 = new Datetime_1.Datetime(29, 5, 2022, 8);
+var date6 = new Datetime_1.Datetime(31, 5, 2022, 4);
+// booking table =====================================================================
 /**
- * create payment and payment management
+ * booking table
  */
-var paymentmanagement = new paymentManagement_1.PaymentManagement();
-var pay1 = new paydirectmoney_1.Paydirectmoney(5, insideorder1);
-var pay2 = new paybybankaccount_1.Paybybankaccount("200 090 333", 5, outsideorder1);
-paymentmanagement.addPay(pay1);
-paymentmanagement.addPay(pay2);
-/**
- * create food menu by it category
- */
-soupMenu.addFood(korko);
-soupMenu.addFood(proher);
-drinkMenu.addFood(greenTea);
-drinkMenu.addFood(cocacola);
-meatMenu.addFood(loklak);
-desertMenu.addFood(saray);
-desertMenu.addFood(bonamSiem);
-/**
- * add food menu into food management
- */
-KakoRestraurant.kitchenmanagement.addFoodmenu(soupMenu);
-KakoRestraurant.kitchenmanagement.addFoodmenu(drinkMenu);
-KakoRestraurant.kitchenmanagement.addFoodmenu(meatMenu);
-KakoRestraurant.kitchenmanagement.addFoodmenu(desertMenu);
-/**
- * add order list inside and outside into order management
- */
-KakoRestraurant.ordersmanagement.addOrderinside(insideorder1);
-KakoRestraurant.ordersmanagement.addOrderinside(insideorder2);
-KakoRestraurant.ordersmanagement.addOrderinside(insideorder3);
-KakoRestraurant.ordersmanagement.addOrderinside(insideorder4);
-KakoRestraurant.ordersmanagement.addOrderoutside(outsideorder1);
-KakoRestraurant.ordersmanagement.addOrderoutside(outsideorder2);
-KakoRestraurant.ordersmanagement.addOrderoutside(outsideorder3);
-/**
- * get booking from out side
- */
-var booking1 = new Booking_1.Booking(2, 10, romdual, date1, date2);
-var booking2 = new Booking_1.Booking(1, 2, shika, date1, date2);
-var booking3 = new Booking_1.Booking(1, 2, shika, date1, date2);
-var booking4 = new Booking_1.Booking(1, 2, nora, date3, date4);
-/**
- * add booking to booking Management
- */
-var bookingManagement = new BookingManagement_1.BookingManagement();
-bookingManagement.addBooking(booking1);
-bookingManagement.addBooking(booking2);
-bookingManagement.addBooking(booking3);
-bookingManagement.addBooking(booking4);
-console.log(KakoRestraurant.kitchenmanagement.getFoodmenuwithCategory(FoodCategory_1.FoodCategory.DRINK));
-console.log('================= get food menu ==================');
-console.log(KakoRestraurant.kitchenmanagement.getfoodMenu());
-console.log('================= get table free ==================');
-console.log(KakoRestraurant.tablemanagement.tablefree());
-console.log('================= get all table ==================');
-console.log(KakoRestraurant.tablemanagement.getTable());
-console.log('================= get all staff ==================');
-console.log(KakoRestraurant.personmanagement.getAllStaff());
-console.log('================= get all staff by salary ==================');
-console.log(KakoRestraurant.personmanagement.getAllStaffBySalary(0));
-console.log('================= get all staff by category ==================');
-console.log(KakoRestraurant.personmanagement.getOnlyStaffCategory(StaffCategories_1.StaffCategory.CHIEF));
-console.log('================= get all inside customer ==================');
-console.log(KakoRestraurant.personmanagement.getAllInsideCustomer());
-console.log('================= get all outside customer ==================');
-console.log(KakoRestraurant.personmanagement.getAllOutsideCustomer());
-console.log('================= get table by the number of chair ==================');
-console.log(KakoRestraurant.tablemanagement.getTableByChair(2));
-console.log('================= check if user get pay ================');
-console.log(paymentmanagement.isOrdergetPaid(outsideorder1));
-console.log('================= get all booking ===================');
-console.log(bookingManagement.getAllBooking());
-console.log('================= get outside order =================');
-console.log(KakoRestraurant.ordersmanagement.getOrderoutside());
+var book1 = new Booking_1.Booking(1, 10, outsideCustomer1, date1, date2);
+var book2 = new Booking_1.Booking(1, 2, outsideCustomer2, date3, date4);
+var book3 = new Booking_1.Booking(1, 5, outsideCustomer3, date5, date6);
+KakoRestaurant.bookingmanagement.addBooking(book1);
+KakoRestaurant.bookingmanagement.addBooking(book2);
+KakoRestaurant.bookingmanagement.addBooking(book3);
+console.log('=============== get all staff ================');
+console.log(KakoRestaurant.personmanagement.getAllStaff());
+console.log('=============== get all customer ================');
+console.log(KakoRestaurant.personmanagement.getAllOutsideCustomer());
+console.log('=============== get all deliverer ================');
+console.log(KakoRestaurant.personmanagement.getAllDeliverer());
+console.log('=============== get all table ================');
+console.log(KakoRestaurant.tablemanagement.getTable());
+console.log('=============== get table by chair ================');
+console.log(KakoRestaurant.tablemanagement.getTableByChair(4));
+console.log('=============== get a table ================');
+console.log(KakoRestaurant.tablemanagement.tablefree());
+console.log('=============== get food menu ================');
+console.log(KakoRestaurant.kitchenmanagement.getfoodMenu());
+console.log('=============== get food menu by category ================');
+console.log(KakoRestaurant.kitchenmanagement.getFoodmenuwithCategory(FoodCategory_1.FoodCategory.DESERT));
+console.log('=============== get all booking ================');
+console.log(KakoRestaurant.bookingmanagement.getAllBooking());
+console.log('=============== get all booking ================');
+console.log(KakoRestaurant.bookingmanagement.getAllBookingByCustomer(outsideCustomer1));

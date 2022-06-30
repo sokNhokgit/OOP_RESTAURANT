@@ -1,4 +1,5 @@
 import { InsideCustomer, OutsideCustomer } from "./customer/Customer";
+import { Deliverer } from "./deliverer/Deliverer";
 import { Gender } from "./Gender";
 import { Staff } from "./staff/Staff";
 import { StaffCategory } from "./staff/StaffCategories";
@@ -7,7 +8,9 @@ export class PersonManagement{
     private staffs: Staff[] = [];
     private insideCustomers: InsideCustomer[] = [];
     private outsideCustomer: OutsideCustomer[] = [];
+    private deliverers: Deliverer[] = [];
 
+    // staff only=======================================
     addStaff(staff: Staff){
         this.staffs.push(staff);
     }
@@ -31,6 +34,8 @@ export class PersonManagement{
         return customers;
     }
 
+    // customer only ========================================
+
     addInsideCustomer(customer: InsideCustomer){
         this.insideCustomers.push(customer);
     }
@@ -45,5 +50,14 @@ export class PersonManagement{
     
     getAllOutsideCustomer(){
         return this.outsideCustomer;
+    }
+
+    // deliverer only ======================================
+    addDeliverer(deliverer: Deliverer){
+        this.deliverers.push(deliverer);
+    }
+
+    getAllDeliverer(){
+        return this.deliverers;
     }
 }

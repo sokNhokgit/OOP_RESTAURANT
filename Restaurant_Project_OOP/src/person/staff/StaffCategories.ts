@@ -1,6 +1,6 @@
 
 export enum StaffCategory{
-    CHIEF,
+    CHEF,
     CLEANER,
     SECURITY,
     WAITER

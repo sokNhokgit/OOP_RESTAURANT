@@ -6,7 +6,9 @@ var PersonManagement = /** @class */ (function () {
         this.staffs = [];
         this.insideCustomers = [];
         this.outsideCustomer = [];
+        this.deliverers = [];
     }
+    // staff only=======================================
     PersonManagement.prototype.addStaff = function (staff) {
         this.staffs.push(staff);
     };
@@ -25,6 +27,7 @@ var PersonManagement = /** @class */ (function () {
         });
         return customers;
     };
+    // customer only ========================================
     PersonManagement.prototype.addInsideCustomer = function (customer) {
         this.insideCustomers.push(customer);
     };
@@ -36,6 +39,13 @@ var PersonManagement = /** @class */ (function () {
     };
     PersonManagement.prototype.getAllOutsideCustomer = function () {
         return this.outsideCustomer;
+    };
+    // deliverer only ======================================
+    PersonManagement.prototype.addDeliverer = function (deliverer) {
+        this.deliverers.push(deliverer);
+    };
+    PersonManagement.prototype.getAllDeliverer = function () {
+        return this.deliverers;
     };
     return PersonManagement;
 }());
