@@ -20,8 +20,7 @@ var Order_1 = require("./Order");
 var Outsideorder = /** @class */ (function (_super) {
     __extends(Outsideorder, _super);
     function Outsideorder(id, category, date, customer) {
-        var _this = _super.call(this, id, category) || this;
-        _this.date = date;
+        var _this = _super.call(this, id, category, date) || this;
         _this.customer = customer;
         _this.foodorder = [];
         return _this;

@@ -3,6 +3,7 @@ import { InsideCustomer } from "../person/customer/Customer";
 import { Food } from "../kitchen/Food";
 import { Waiter } from "../person/staff/Waiter";
 import { OrderCategory } from "./Ordercategory";
+import { Datetime } from "../date/Datetime";
 
 
 export class Insideorder extends Order{
@@ -10,10 +11,11 @@ export class Insideorder extends Order{
     constructor(
         id:number,
         category:OrderCategory,
+        date:Datetime,
         private waiter:Waiter,
         private customer:InsideCustomer
         ){
-            super(id,category)
+            super(id,category,date)
         }
 
         getWaiter():Waiter{

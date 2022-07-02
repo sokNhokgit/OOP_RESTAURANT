@@ -1,6 +1,7 @@
 "use strict";
 exports.__esModule = true;
 exports.PaymentManagement = void 0;
+var Orderoutside_1 = require("../Order.ts/Orderoutside");
 var PaymentManagement = /** @class */ (function () {
     function PaymentManagement() {
         this.pays = [];
@@ -21,12 +22,25 @@ var PaymentManagement = /** @class */ (function () {
         }
         return orderisPaid;
     };
-    PaymentManagement.prototype.getRevenue = function () {
-        var totalprice = 0;
+    PaymentManagement.prototype.getDayRevenue = function (date) {
+        var totalpayprice = 0;
         var pays = this.pays;
         for (var i = 0; i < pays.length; i++) {
-            console.log(pays[i]);
+            var pay = pays[i].getOrder() || Orderoutside_1.Outsideorder;
+            if (pay.getDate().isEqual(date)) {
+                totalpayprice += pay.orderTotalPrice();
+            }
         }
+        return totalpayprice;
+    };
+    PaymentManagement.prototype.getRevenue = function () {
+        var totalpayprice = 0;
+        var pays = this.pays;
+        for (var i = 0; i < pays.length; i++) {
+            var pay = pays[i].getOrder() || Orderoutside_1.Outsideorder;
+            totalpayprice += pay.orderTotalPrice();
+        }
+        return totalpayprice;
     };
     return PaymentManagement;
 }());

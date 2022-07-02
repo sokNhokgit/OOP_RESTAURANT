@@ -9,10 +9,10 @@ export class Outsideorder extends Order{
     constructor(
         id:number, 
         category:OrderCategory,
-        private date:Datetime,
+        date:Datetime,
         private customer:OutsideCustomer,
         ){
-            super(id,category);
+            super(id,category,date);
         }
 
        addFood(food:Food){

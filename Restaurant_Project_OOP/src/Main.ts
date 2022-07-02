@@ -74,11 +74,11 @@ let table1 = new Table(1,2,Tablestatus.NEW);
 let table2 = new Table(2,2,Tablestatus.NEW);
 let table3 = new Table(3,2,Tablestatus.NEW);
 let table4 = new Table(4,2,Tablestatus.NEW);
-let insideorder1 = new Insideorder(1,OrderCategory.INSIDE_ORDER,waiter2,lin);
-let insideorder2 = new Insideorder(2,OrderCategory.INSIDE_ORDER,banana,chorkev);
-let insideorder3 = new Insideorder(3,OrderCategory.INSIDE_ORDER,banana,seavheng);
-let insideorder4 = new Insideorder(4,OrderCategory.INSIDE_ORDER,banana,seavheng);
-let outsideorder1 = new Outsideorder(1,OrderCategory.OUTSIDE_ORDER,date1,nora);
+let insideorder1 = new Insideorder(1,OrderCategory.INSIDE_ORDER,date1,waiter2,lin);
+let insideorder2 = new Insideorder(2,OrderCategory.INSIDE_ORDER,date1,banana,chorkev);
+let insideorder3 = new Insideorder(3,OrderCategory.INSIDE_ORDER,date3,banana,seavheng);
+let insideorder4 = new Insideorder(4,OrderCategory.INSIDE_ORDER,date5,banana,seavheng);
+let outsideorder1 = new Outsideorder(1,OrderCategory.OUTSIDE_ORDER,date2,nora);
 let outsideorder2 = new Outsideorder(2,OrderCategory.OUTSIDE_ORDER,date2,shika);
 let outsideorder3 = new Outsideorder(3,OrderCategory.OUTSIDE_ORDER,date3,romdual);
 let pay1 = new Paydirectmoney(5,insideorder1);
@@ -86,7 +86,7 @@ let pay2 = new Paybybankaccount("200 090 333",5,outsideorder1);
 let pay3 = new Paydirectmoney(5,insideorder2);
 let pay4 = new Paydirectmoney(5,insideorder3);
 let pay5 = new Paydirectmoney(5,insideorder4);
-let booking1 = new Booking(2, 10, romdual, date1, date1Arried);
+let booking1 = new Booking(2,1, romdual, date1, date1Arried);
 let booking2 = new Booking(1, 2, shika, date2, date2Arried);
 let booking3 = new Booking(1, 2, shika, date3, date3Arried);
 let booking4 = new Booking(1, 2, nora, date4, date4Arried);
@@ -97,7 +97,7 @@ KakoRestraurant.personmanagement.addStaff(coconut);
 KakoRestraurant.personmanagement.addStaff(DragonFruit);
 insideorder1.addFood(cocacola);
 insideorder1.addFood(korko);
-insideorder2.addFood(cocacola);
+insideorder2.addFood(greenTea);
 insideorder2.addFood(korko);
 insideorder3.addFood(cocacola);
 insideorder3.addFood(korko);
@@ -112,7 +112,7 @@ outsideorder3.addFood(greenTea);
 table1.setOrder(insideorder1);
 table2.setOrder(insideorder2);
 table3.setOrder(insideorder3);
-// table4.setOrder(insideorder4);
+table4.setOrder(insideorder4);
 paymentmanagement.addPay(pay1);
 paymentmanagement.addPay(pay2);
 paymentmanagement.addPay(pay3);
@@ -156,7 +156,10 @@ KakoRestraurant.kitchenmanagement = kitchenmanagement;
 KakoRestraurant.ordersmanagement = ordermanagement;
 KakoRestraurant.tablemanagement = tablemanagement;
 
-// console.log(paymentmanagement.getRevenue());
+console.log(insideorder1);
+console.log(insideorder2);
+
+console.log(ordermanagement);
 
 
                                             

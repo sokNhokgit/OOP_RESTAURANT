@@ -13,10 +13,14 @@ var TableManagement = /** @class */ (function () {
     };
     TableManagement.prototype.findfreeTable = function () {
         var tables = this.tables;
+        var freetable = [];
         for (var i = 0; i < tables.length; i++) {
             if (tables[i].istableFree()) {
-                return tables[i];
+                freetable.push(tables[i]);
             }
+        }
+        if (freetable.length !== 0) {
+            return freetable;
         }
         return undefined;
     };

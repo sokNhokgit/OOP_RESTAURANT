@@ -10,12 +10,16 @@ export class TableManagement {
         this.tables.push(table);
     }
 
-    findfreeTable():Table | undefined{
+    findfreeTable():Table[] | undefined{
         let tables = this.tables;
+        let freetable = [];
         for (let i=0;i<tables.length;i++){
             if (tables[i].istableFree()){
-                return tables[i];
+                freetable.push(tables[i])
             }
+        }
+        if (freetable.length !==0 ){
+            return freetable;
         }
         return undefined;
     }

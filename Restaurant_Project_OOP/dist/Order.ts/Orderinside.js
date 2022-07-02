@@ -19,8 +19,8 @@ exports.Insideorder = void 0;
 var Order_1 = require("./Order");
 var Insideorder = /** @class */ (function (_super) {
     __extends(Insideorder, _super);
-    function Insideorder(id, category, waiter, customer) {
-        var _this = _super.call(this, id, category) || this;
+    function Insideorder(id, category, date, waiter, customer) {
+        var _this = _super.call(this, id, category, date) || this;
         _this.waiter = waiter;
         _this.customer = customer;
         _this.foododer = [];
