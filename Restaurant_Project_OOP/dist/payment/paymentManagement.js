@@ -22,7 +22,6 @@ var PaymentManagement = /** @class */ (function () {
         }
         return orderisPaid;
     };
-<<<<<<< HEAD
     PaymentManagement.prototype.getDayRevenue = function (date) {
         var totalpayprice = 0;
         var pays = this.pays;
@@ -43,8 +42,6 @@ var PaymentManagement = /** @class */ (function () {
         }
         return totalpayprice;
     };
-=======
->>>>>>> d6d32b0847596c63c673e63a71c92a2a3a70e78c
     return PaymentManagement;
 }());
 exports.PaymentManagement = PaymentManagement;

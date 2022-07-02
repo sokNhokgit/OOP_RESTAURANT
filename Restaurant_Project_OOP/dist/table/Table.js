@@ -11,12 +11,18 @@ var Table = /** @class */ (function () {
     Table.prototype.setOrder = function (order) {
         this.ordered = order;
     };
+    Table.prototype.isChairEqual = function (other) {
+        return this.chairnumber == other;
+    };
     Table.prototype.istableFree = function () {
         var isfree = true;
         if (this.ordered !== undefined) {
             isfree = false;
         }
         return isfree;
+    };
+    Table.prototype.isIdEqual = function (other) {
+        return this.tableid == other;
     };
     Table.prototype.customerLeft = function () {
         this.ordered = undefined;

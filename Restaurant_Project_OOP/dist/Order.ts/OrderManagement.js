@@ -2,7 +2,6 @@
 exports.__esModule = true;
 exports.OrderManagement = void 0;
 var Ordercategory_1 = require("./Ordercategory");
-var paymentManagement_1 = require("../payment/paymentManagement");
 var OrderManagement = /** @class */ (function () {
     function OrderManagement() {
         this.orders = [];
@@ -37,12 +36,6 @@ var OrderManagement = /** @class */ (function () {
     OrderManagement.prototype.getWaiterresponse = function (waiter) {
         var allwaiterresponse = this.getWaiterresponselist(waiter);
         return allwaiterresponse.length;
-    };
-    OrderManagement.prototype.getOrderPaid = function () {
-        var orders = this.orders;
-        var paymentManagement = new paymentManagement_1.PaymentManagement();
-        var paidOrder = paymentManagement.getPays();
-        return paidOrder;
     };
     return OrderManagement;
 }());
