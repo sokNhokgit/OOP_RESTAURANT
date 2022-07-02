@@ -2,9 +2,9 @@
 exports.__esModule = true;
 exports.Delivery = void 0;
 var Delivery = /** @class */ (function () {
-    function Delivery(deliverer, food, customer) {
+    function Delivery(deliverer, foodOrder, customer) {
         this.deliverer = deliverer;
-        this.food = food;
+        this.foodOrder = foodOrder;
         this.customer = customer;
     }
     Delivery.prototype.isEqualCustomer = function (other) {

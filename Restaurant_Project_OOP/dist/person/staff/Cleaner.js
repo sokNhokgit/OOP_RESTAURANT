@@ -17,10 +17,11 @@ var __extends = (this && this.__extends) || (function () {
 exports.__esModule = true;
 exports.Cleaner = void 0;
 var Staff_1 = require("./Staff");
+var StaffCategories_1 = require("./StaffCategories");
 var Cleaner = /** @class */ (function (_super) {
     __extends(Cleaner, _super);
     function Cleaner(name, age, gender, phoneNumber) {
-        return _super.call(this, name, age, gender, phoneNumber) || this;
+        return _super.call(this, name, age, gender, phoneNumber, StaffCategories_1.StaffCategory.CLEANER) || this;
     }
     return Cleaner;
 }(Staff_1.Staff));

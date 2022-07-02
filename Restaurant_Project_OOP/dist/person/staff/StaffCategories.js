@@ -3,7 +3,7 @@ exports.__esModule = true;
 exports.StaffCategory = void 0;
 var StaffCategory;
 (function (StaffCategory) {
-    StaffCategory[StaffCategory["CHIEF"] = 0] = "CHIEF";
+    StaffCategory[StaffCategory["CHEF"] = 0] = "CHEF";
     StaffCategory[StaffCategory["CLEANER"] = 1] = "CLEANER";
     StaffCategory[StaffCategory["SECURITY"] = 2] = "SECURITY";
     StaffCategory[StaffCategory["WAITER"] = 3] = "WAITER";

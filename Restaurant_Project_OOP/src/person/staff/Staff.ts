@@ -1,10 +1,11 @@
 import { Gender } from "../Gender";
 import { Person } from "../Person";
+import { StaffCategory } from "./StaffCategories";
 
 export abstract class Staff extends Person{
     
     private salary: number = 0;
-    constructor( name: string, age: number, gender:Gender,phoneNumber:number){
+    constructor( name: string, age: number, gender:Gender,phoneNumber:number, category: StaffCategory){
         super (name, age, gender,phoneNumber);
     }
 

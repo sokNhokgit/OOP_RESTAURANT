@@ -8,6 +8,9 @@ var TableManagement = /** @class */ (function () {
     TableManagement.prototype.getTable = function () {
         return this.tables;
     };
+    TableManagement.prototype.countTable = function () {
+        return this.tables.length;
+    };
     TableManagement.prototype.addTable = function (table) {
         this.tables.push(table);
     };

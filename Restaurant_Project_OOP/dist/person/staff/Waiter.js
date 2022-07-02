@@ -17,10 +17,11 @@ var __extends = (this && this.__extends) || (function () {
 exports.__esModule = true;
 exports.Waiter = void 0;
 var Staff_1 = require("./Staff");
+var StaffCategories_1 = require("./StaffCategories");
 var Waiter = /** @class */ (function (_super) {
     __extends(Waiter, _super);
     function Waiter(name, age, gender, phoneNumber) {
-        return _super.call(this, name, age, gender, phoneNumber) || this;
+        return _super.call(this, name, age, gender, phoneNumber, StaffCategories_1.StaffCategory.WAITER) || this;
     }
     Waiter.prototype.isWaiter = function (waiter) {
         return this.getName() === waiter.getName() && this.getAge() === waiter.getAge() && this.getGender() === waiter.getGender();

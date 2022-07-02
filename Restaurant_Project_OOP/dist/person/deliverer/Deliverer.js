@@ -15,24 +15,28 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 exports.__esModule = true;
-exports.Staff = void 0;
+exports.Deliverer = exports.Vehicle = void 0;
 var Person_1 = require("../Person");
-var Staff = /** @class */ (function (_super) {
-    __extends(Staff, _super);
-    function Staff(name, age, gender, phoneNumber, category) {
+var Vehicle;
+(function (Vehicle) {
+    Vehicle[Vehicle["CAR"] = 0] = "CAR";
+    Vehicle[Vehicle["MOTORCYCLE"] = 1] = "MOTORCYCLE";
+    Vehicle[Vehicle["BIKE"] = 2] = "BIKE";
+    Vehicle[Vehicle["TOKTOK"] = 3] = "TOKTOK";
+})(Vehicle = exports.Vehicle || (exports.Vehicle = {}));
+var Deliverer = /** @class */ (function (_super) {
+    __extends(Deliverer, _super);
+    function Deliverer(name, age, gender, phoneNumber, vehicle) {
         var _this = _super.call(this, name, age, gender, phoneNumber) || this;
-        _this.salary = 0;
+        _this.vehicle = vehicle;
         return _this;
     }
-    Staff.prototype.setSalary = function (salary) {
-        this.salary = salary;
+    Deliverer.prototype.isEqualVehicle = function (other) {
+        return this.vehicle == other;
     };
-    Staff.prototype.getSalary = function () {
-        return this.salary;
+    Deliverer.prototype.isEqualDeliverer = function (other) {
+        return this.name == other.name && this.age == other.age && this.gender == other.gender && this.phoneNumber == other.phoneNumber;
     };
-    Staff.prototype.isEqual = function (staff) {
-        return this.name === staff.name && this.age === staff.age && this.gender === this.gender && this.phoneNumber === this.phoneNumber;
-    };
-    return Staff;
+    return Deliverer;
 }(Person_1.Person));
-exports.Staff = Staff;
+exports.Deliverer = Deliverer;

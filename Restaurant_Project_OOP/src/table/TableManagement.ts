@@ -6,6 +6,10 @@ export class TableManagement {
         return this.tables;
     }
 
+    countAllTable(): number{
+        return this.tables.length;
+    }
+
     addTable(table:Table){
         this.tables.push(table);
     }
@@ -24,5 +28,45 @@ export class TableManagement {
         return undefined;
     }
 
-  
+    findAllFreeTable():Table[] | undefined{
+        let tables = this.tables;
+        let tableFree = []
+        for (let i=0;i<tables.length;i++){
+            if (tables[i].istableFree()){
+                tableFree.push(tables[i]);
+            }
+        }
+        if(tableFree.length>0){
+            return tableFree;
+        }
+        return undefined;
+    }
+
+    getAllTableByChair(chair: number):Table[] | undefined{
+        let Tables = [];
+        for(let table of this.tables){
+            if(table.isChairEqual(chair)){
+                Tables.push(table);
+            }
+        }
+        if(Tables.length>0){
+            return Tables;
+        }else{
+            return undefined;
+        }
+    }
+
+    countAllTableByChair(chair: number):number | undefined{
+        let Tables = [];
+        for(let table of this.tables){
+            if(table.isChairEqual(chair)){
+                Tables.push(table);
+            }
+        }
+        if(Tables.length>0){
+            return Tables.length;
+        }else{
+            return undefined;
+        }
+    }
 }

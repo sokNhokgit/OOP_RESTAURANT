@@ -10,12 +10,20 @@ export class Table {
         this.ordered = order;
     }
 
+    isChairEqual(other:number):boolean{
+        return this.chairnumber == other;
+    }
+
     istableFree():boolean{
         let isfree = true;
         if (this.ordered !== undefined){
             isfree = false;
         }
         return isfree;
+    }
+
+    isIdEqual(other: number){
+        return this.tableid == other;
     }
 
     customerLeft(){
